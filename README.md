@@ -17,3 +17,30 @@ The notebook builds the SQD idea from first principles:
 7. Compare the SQD estimate against the exact answer.
 
 The goal is not only to run code, but to understand why each step works mathematically.
+
+## Quick start
+
+Clone the repository and move into the project folder:
+
+```bash
+git clone https://github.com/TSS99/Sample_Based_Quantum_Diagonalization.git
+cd Sample_Based_Quantum_Diagonalization
+```
+
+Create the virtual environment and install the required libraries:
+
+```bash
+./setup_env.sh
+```
+
+Activate the environment whenever you return to the project:
+
+```bash
+source .venv/bin/activate
+```
+
+Launch JupyterLab:
+
+```bash
+./start_notebook.sh
+```
