@@ -72,3 +72,38 @@ The notebook follows the same sequence every time:
 8. Solve the reduced problem \(H_{\mathrm{sub}} c = E S c\).
 9. Rebuild the approximate state in the full Hilbert space.
 10. Compare the approximate energy with the exact one.
+
+## Repository layout
+
+```text
+.
+├── README.md
+├── requirements.txt
+├── setup_env.sh
+├── start_notebook.sh
+├── notebooks/
+│   └── sample_based_quantum_diagonalization_workflow.ipynb
+└── scripts/
+    └── generate_sqd_notebook.py
+```
+
+## A note about the example
+
+The notebook uses a small three-qubit Hamiltonian on purpose.
+
+That is not because SQD only matters for small problems. It is because small problems are the best place to learn the workflow carefully:
+
+- you can see the full Hamiltonian,
+- you can inspect every basis state,
+- you can verify the exact answer,
+- you can see how sampling changes the result.
+
+Once the workflow feels natural on a toy model, it becomes much easier to understand how the same structure scales to chemistry, materials, or larger fermionic systems.
+
+## Regenerating the notebook
+
+If you edit the generator script, recreate the notebook with:
+
+```bash
+python3 scripts/generate_sqd_notebook.py
+```
