@@ -400,6 +400,135 @@ def build_cells() -> list[dict]:
             comparison_df
             """
         ),
+        markdown_cell(
+            r"""
+            ## Step 11: Study how shot count and subspace size affect the answer
+
+            SQD is only as good as the subspace suggested by the samples.
+
+            Two knobs matter a lot:
+
+            - the number of measurement shots,
+            - the number of sampled configurations we keep.
+
+            The experiment below repeats the workflow many times and records the average energy error. This is useful because a single random draw can be lucky or unlucky.
+            """
+        ),
+        code_cell(
+            """
+            def run_sqd_trial(shots: int, top_k: int, seed: int) -> float:
+                local_rng = np.random.default_rng(seed)
+                sampled = local_rng.choice(len(basis_labels), size=shots, p=np.abs(exact_ground_state) ** 2)
+                counts = pd.Series(sampled).value_counts().sort_values(ascending=False)
+                chosen = counts.head(top_k).index.tolist()
+                B_trial = np.eye(len(basis_labels))[:, chosen]
+                H_trial = B_trial.T @ H @ B_trial
+                S_trial = B_trial.T @ B_trial
+                trial_energy = eigh(H_trial, S_trial)[0][0]
+                return abs(trial_energy - exact_ground_energy)
+
+
+            shot_grid = [8, 16, 32, 64, 128, 256, 512]
+            subspace_grid = [1, 2, 3]
+            rows = []
+
+            for shots_value in shot_grid:
+                for subspace_size in subspace_grid:
+                    errors = [
+                        run_sqd_trial(shots=shots_value, top_k=subspace_size, seed=1000 + rep)
+                        for rep in range(40)
+                    ]
+                    rows.append(
+                        {
+                            "shots": shots_value,
+                            "subspace_size": subspace_size,
+                            "mean_abs_energy_error": float(np.mean(errors)),
+                        }
+                    )
+
+            experiment_df = pd.DataFrame(rows)
+            experiment_df
+            """
+        ),
+        markdown_cell(
+            r"""
+            ## Step 12: Visualize the convergence trend
+
+            We expect the energy error to improve when:
+
+            - we collect more shots, because the empirical distribution better matches the true one,
+            - we allow a slightly larger subspace, because we reduce the chance of excluding an important basis state.
+
+            The plot below helps us see that trend instead of guessing it from a table.
+            """
+        ),
+        code_cell(
+            """
+            fig, ax = plt.subplots(figsize=(8, 5))
+
+            for subspace_size, group in experiment_df.groupby("subspace_size"):
+                ax.plot(
+                    group["shots"],
+                    group["mean_abs_energy_error"],
+                    marker="o",
+                    linewidth=2,
+                    label=f"top_k = {subspace_size}",
+                )
+
+            ax.set_xscale("log", base=2)
+            ax.set_xlabel("Number of shots")
+            ax.set_ylabel("Mean absolute energy error")
+            ax.set_title("How finite-shot sampling affects SQD accuracy")
+            ax.legend()
+            plt.show()
+            """
+        ),
+        markdown_cell(
+            r"""
+            ## Step 13: Show a failure case on purpose
+
+            Good examples teach success.
+            Great examples also teach failure.
+
+            If our subspace misses an important ground-state basis vector, the projected problem cannot recover the correct energy. We will now choose a deliberately bad subspace to see this happen in practice.
+            """
+        ),
+        code_cell(
+            """
+            bad_indices = [0, 3, 6]  # |000>, |011>, |110>
+            B_bad = np.eye(len(basis_labels))[:, bad_indices]
+            H_bad = B_bad.T @ H @ B_bad
+            S_bad = B_bad.T @ B_bad
+            bad_energy = eigh(H_bad, S_bad)[0][0]
+
+            print("Bad subspace bitstrings:", [basis_labels[i] for i in bad_indices])
+            print(f"Energy from the bad subspace: {bad_energy:.6f}")
+            print(f"Exact ground-state energy:   {exact_ground_energy:.6f}")
+            """
+        ),
+        markdown_cell(
+            r"""
+            ## Step 14: What this notebook should leave you with
+
+            The full SQD workflow is now visible:
+
+            1. Solve or estimate a state whose measurements reveal important basis states.
+            2. Sample bitstrings from that state.
+            3. Keep the configurations that appear important.
+            4. Build a reduced basis matrix \(B\).
+            5. Form \(H_{\mathrm{sub}} = B^T H B\) and \(S = B^T B\).
+            6. Solve the reduced eigenvalue problem.
+            7. Check whether the answer converges as you increase shots or enrich the subspace.
+
+            In larger chemistry or materials problems, the same logic is used, but the state preparation, symmetry constraints, and Hamiltonian construction become more sophisticated.
+
+            The core lesson stays the same:
+
+            $$
+            \text{good samples} \longrightarrow \text{good subspace} \longrightarrow \text{good reduced diagonalization}.
+            $$
+            """
+        ),
     ]
 
 
