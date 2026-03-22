@@ -44,3 +44,31 @@ Launch JupyterLab:
 ```bash
 ./start_notebook.sh
 ```
+
+## What the notebook teaches
+
+The notebook is written for a reader who may be new to both quantum computing and numerical diagonalization.
+
+It explains:
+
+1. What an eigenvalue problem is in the language of quantum mechanics.
+2. Why full diagonalization becomes expensive as the Hilbert space grows.
+3. How measurement samples tell us which computational basis states matter most.
+4. How to build a reduced subspace from those samples.
+5. Why the reduced problem can be solved with a projected Hamiltonian.
+6. When SQD succeeds and when it fails.
+
+## Workflow at a glance
+
+The notebook follows the same sequence every time:
+
+1. Define a Hamiltonian matrix \(H\).
+2. Solve \(H \lvert \psi \rangle = E \lvert \psi \rangle\) exactly for a reference answer.
+3. Convert the ground-state amplitudes into sampling probabilities with the Born rule.
+4. Draw bitstring samples that imitate repeated measurements.
+5. Keep the most important sampled configurations.
+6. Form the projected Hamiltonian \(H_{\mathrm{sub}} = B^T H B\).
+7. Form the overlap matrix \(S = B^T B\).
+8. Solve the reduced problem \(H_{\mathrm{sub}} c = E S c\).
+9. Rebuild the approximate state in the full Hilbert space.
+10. Compare the approximate energy with the exact one.
