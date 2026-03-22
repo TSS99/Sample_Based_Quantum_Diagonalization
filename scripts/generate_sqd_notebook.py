@@ -247,6 +247,62 @@ def build_cells() -> list[dict]:
             support_df
             """
         ),
+        markdown_cell(
+            r"""
+            ## Step 6: Emulate repeated measurements
+
+            In a real quantum workflow, we would prepare a state on hardware or on a simulator and then measure it many times. Each shot returns one computational basis state.
+
+            To keep this notebook focused on the SQD logic, we will emulate that measurement process directly from the exact probabilities.
+
+            If the true distribution is \(p(x)\), then a finite number of shots will not reproduce it perfectly. That finite-shot noise is important because it affects which basis states we keep in our reduced subspace.
+            """
+        ),
+        code_cell(
+            """
+            shots = 300
+            sampled_indices = rng.choice(len(basis_labels), size=shots, p=np.abs(exact_ground_state) ** 2)
+            counts = pd.Series(sampled_indices).value_counts().sort_values(ascending=False)
+
+            counts_df = pd.DataFrame(
+                {
+                    "decimal": counts.index,
+                    "bitstring": [basis_labels[i] for i in counts.index],
+                    "count": counts.values,
+                }
+            )
+            counts_df["empirical_probability"] = counts_df["count"] / shots
+
+            counts_df
+            """
+        ),
+        markdown_cell(
+            r"""
+            ## Step 7: Turn the samples into a candidate subspace
+
+            The SQD idea is simple:
+
+            - frequent bitstrings are likely to matter,
+            - rare or unseen bitstrings may matter less,
+            - so we build a reduced subspace from the configurations that appear most often.
+
+            In this toy problem the exact ground state mostly lives on two basis states, so we will keep the two most frequently observed bitstrings.
+
+            If the sampling step is informative, these two bitstrings should match the important support of the exact ground state.
+            """
+        ),
+        code_cell(
+            """
+            top_k = 2
+            selected_indices = counts_df.head(top_k)["decimal"].tolist()
+            selected_bitstrings = [basis_labels[i] for i in selected_indices]
+
+            B = np.eye(len(basis_labels))[:, selected_indices]
+
+            print("Selected basis states:", selected_bitstrings)
+            print("Shape of basis matrix B:", B.shape)
+            """
+        ),
     ]
 
 
