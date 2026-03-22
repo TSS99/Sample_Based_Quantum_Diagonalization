@@ -178,6 +178,75 @@ def build_cells() -> list[dict]:
             hamiltonian_df
             """
         ),
+        markdown_cell(
+            r"""
+            ## Step 4: Solve the full problem exactly
+
+            Before we approximate anything, we should know the exact answer.
+
+            Since \(H\) is a real symmetric matrix, we can use a Hermitian eigensolver to compute all eigenvalues and eigenvectors. The smallest eigenvalue is the ground-state energy.
+
+            In symbols, we are looking for
+
+            $$
+            E_0 = \min \mathrm{spec}(H),
+            $$
+
+            and for the corresponding normalized eigenvector \(\lvert \psi_0 \rangle\).
+
+            This exact solution will be our benchmark for judging whether the sample-based approach worked.
+            """
+        ),
+        code_cell(
+            """
+            exact_eigenvalues, exact_eigenvectors = eigh(H)
+            exact_ground_energy = exact_eigenvalues[0]
+            exact_ground_state = exact_eigenvectors[:, 0]
+
+            energy_table = pd.DataFrame(
+                {
+                    "eigenvalue": exact_eigenvalues,
+                }
+            )
+
+            print(f"Exact ground-state energy: {exact_ground_energy:.6f}")
+            energy_table
+            """
+        ),
+        markdown_cell(
+            r"""
+            ## Step 5: Inspect the exact ground state in the computational basis
+
+            Any state in this eight-dimensional Hilbert space can be expanded as
+
+            $$
+            \lvert \psi_0 \rangle = \sum_x a_x \lvert x \rangle,
+            $$
+
+            where each \(x\) is a bitstring such as \(011\) or \(101\), and \(a_x\) is the corresponding amplitude.
+
+            The measurement probability of each basis state is given by the Born rule:
+
+            $$
+            p(x) = |a_x|^2.
+            $$
+
+            If SQD is going to work, our samples need to repeatedly reveal the basis states that carry most of this probability weight.
+            """
+        ),
+        code_cell(
+            """
+            support_df = pd.DataFrame(
+                {
+                    "bitstring": basis_labels,
+                    "amplitude": exact_ground_state,
+                    "probability": np.abs(exact_ground_state) ** 2,
+                }
+            ).sort_values("probability", ascending=False, ignore_index=True)
+
+            support_df
+            """
+        ),
     ]
 
 
