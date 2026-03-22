@@ -303,6 +303,103 @@ def build_cells() -> list[dict]:
             print("Shape of basis matrix B:", B.shape)
             """
         ),
+        markdown_cell(
+            r"""
+            ## Step 8: Project the Hamiltonian into the sampled subspace
+
+            Once we have the basis matrix \(B\), the projected Hamiltonian is
+
+            $$
+            H_{\mathrm{sub}} = B^T H B.
+            $$
+
+            The overlap matrix is
+
+            $$
+            S = B^T B.
+            $$
+
+            Because the columns of \(B\) are computational basis vectors, they are orthonormal, so \(S = I\). Still, we compute it explicitly because the more general SQD workflow often involves a nontrivial overlap matrix.
+            """
+        ),
+        code_cell(
+            """
+            H_sub = B.T @ H @ B
+            S_sub = B.T @ B
+
+            print("Projected Hamiltonian:")
+            print(H_sub)
+            print()
+            print("Overlap matrix:")
+            print(S_sub)
+            """
+        ),
+        markdown_cell(
+            r"""
+            ## Step 9: Solve the reduced eigenvalue problem
+
+            The reduced coefficients \(c\) satisfy
+
+            $$
+            H_{\mathrm{sub}} c = E S c.
+            $$
+
+            The smallest eigenvalue of this reduced problem is our SQD energy estimate. Once we have the coefficient vector \(c\), we lift it back into the original Hilbert space with
+
+            $$
+            \lvert \psi_{\mathrm{SQD}} \rangle = B c.
+            $$
+
+            This step is the payoff: a small diagonalization problem replaces the full one.
+            """
+        ),
+        code_cell(
+            """
+            sqd_eigenvalues, sqd_eigenvectors = eigh(H_sub, S_sub)
+            sqd_energy = sqd_eigenvalues[0]
+            sqd_coefficients = sqd_eigenvectors[:, 0]
+            sqd_state = B @ sqd_coefficients
+
+            print(f"SQD ground-state estimate: {sqd_energy:.6f}")
+            print("Reduced-space coefficients:")
+            print(sqd_coefficients)
+            print("Reconstructed state in the full basis:")
+            print(sqd_state)
+            """
+        ),
+        markdown_cell(
+            r"""
+            ## Step 10: Compare the SQD estimate with the exact answer
+
+            There are two natural diagnostics:
+
+            1. **Energy error**
+               $$
+               |E_{\mathrm{SQD}} - E_0|
+               $$
+            2. **State overlap**
+               $$
+               |\langle \psi_0 \vert \psi_{\mathrm{SQD}} \rangle|
+               $$
+
+            An overlap close to \(1\) means the approximate state points in almost the same direction as the exact ground state.
+            """
+        ),
+        code_cell(
+            """
+            energy_error = abs(sqd_energy - exact_ground_energy)
+            state_overlap = abs(np.vdot(exact_ground_state, sqd_state))
+
+            comparison_df = pd.DataFrame(
+                {
+                    "metric": ["Exact ground energy", "SQD ground energy", "Absolute energy error", "State overlap"],
+                    "value": [exact_ground_energy, sqd_energy, energy_error, state_overlap],
+                }
+            )
+
+            comparison_df
+            """
+        ),
     ]
 
 
