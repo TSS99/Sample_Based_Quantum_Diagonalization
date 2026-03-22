@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 from textwrap import dedent
@@ -11,20 +12,24 @@ NOTEBOOK_PATH = ROOT / "notebooks" / "sample_based_quantum_diagonalization_workf
 
 
 def markdown_cell(source: str) -> dict:
+    clean_source = dedent(source).strip("\n")
     return {
         "cell_type": "markdown",
+        "id": "md-" + hashlib.sha1(clean_source.encode("utf-8")).hexdigest()[:10],
         "metadata": {},
-        "source": dedent(source).strip("\n").splitlines(keepends=True),
+        "source": clean_source.splitlines(keepends=True),
     }
 
 
 def code_cell(source: str) -> dict:
+    clean_source = dedent(source).strip("\n")
     return {
         "cell_type": "code",
         "execution_count": None,
+        "id": "code-" + hashlib.sha1(clean_source.encode("utf-8")).hexdigest()[:10],
         "metadata": {},
         "outputs": [],
-        "source": dedent(source).strip("\n").splitlines(keepends=True),
+        "source": clean_source.splitlines(keepends=True),
     }
 
 
