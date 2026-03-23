@@ -270,7 +270,7 @@ def build_cells() -> list[dict]:
 
             To keep this notebook focused on the SQD logic, we will emulate that measurement process directly from the exact probabilities.
 
-            If the true distribution is \(p(x)\), then a finite number of shots will not reproduce it perfectly. That finite-shot noise is important because it affects which basis states we keep in our reduced subspace.
+            If the true distribution is $p(x)$, then a finite number of shots will not reproduce it perfectly. That finite-shot noise is important because it affects which basis states we keep in our reduced subspace.
             """
         ),
         code_cell(
