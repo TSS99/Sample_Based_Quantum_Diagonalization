@@ -62,14 +62,14 @@ It explains:
 
 The notebook follows the same sequence every time:
 
-1. Define a Hamiltonian matrix \(H\).
-2. Solve \(H \lvert \psi \rangle = E \lvert \psi \rangle\) exactly for a reference answer.
+1. Define a Hamiltonian matrix $H$.
+2. Solve $H \lvert \psi \rangle = E \lvert \psi \rangle$ exactly for a reference answer.
 3. Convert the ground-state amplitudes into sampling probabilities with the Born rule.
 4. Draw bitstring samples that imitate repeated measurements.
 5. Keep the most important sampled configurations.
-6. Form the projected Hamiltonian \(H_{\mathrm{sub}} = B^T H B\).
-7. Form the overlap matrix \(S = B^T B\).
-8. Solve the reduced problem \(H_{\mathrm{sub}} c = E S c\).
+6. Form the projected Hamiltonian $H_{\mathrm{sub}} = B^T H B$.
+7. Form the overlap matrix $S = B^T B$.
+8. Solve the reduced problem $H_{\mathrm{sub}} c = E S c$.
 9. Rebuild the approximate state in the full Hilbert space.
 10. Compare the approximate energy with the exact one.
 
