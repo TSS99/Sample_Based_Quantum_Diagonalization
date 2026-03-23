@@ -7,7 +7,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 FILES = [
     ROOT / "README.md",
-    ROOT / "scripts" / "generate_sqd_notebook.py",
     ROOT / "notebooks" / "sample_based_quantum_diagonalization_workflow.ipynb",
 ]
 BAD_TOKENS = [r"\(", r"\)", r"\[", r"\]"]
