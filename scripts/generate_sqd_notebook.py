@@ -83,11 +83,11 @@ def build_cells() -> list[dict]:
 
             where:
 
-            - \(H\) is the Hamiltonian matrix,
-            - \(E\) is an energy eigenvalue,
-            - \(\lvert \psi \rangle\) is an eigenstate.
+            - $H$ is the Hamiltonian matrix,
+            - $E$ is an energy eigenvalue,
+            - $\lvert \psi \rangle$ is an eigenstate.
 
-            In a large quantum problem, directly diagonalizing \(H\) can be too expensive. Sample-based quantum diagonalization (SQD) tries to avoid that by using samples to identify a much smaller subspace that still contains the important physics.
+            In a large quantum problem, directly diagonalizing $H$ can be too expensive. Sample-based quantum diagonalization (SQD) tries to avoid that by using samples to identify a much smaller subspace that still contains the important physics.
 
             In this notebook we will work through the full logic step by step, using a small toy Hamiltonian so every piece stays visible.
             """
