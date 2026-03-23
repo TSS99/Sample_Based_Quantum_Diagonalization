@@ -98,12 +98,12 @@ def build_cells() -> list[dict]:
 
             Here is the plan we will follow:
 
-            1. Define a small Hamiltonian \(H\).
+            1. Define a small Hamiltonian $H$.
             2. Solve it exactly so we know the correct answer.
             3. Convert the exact ground state into measurement probabilities.
             4. Draw samples from those probabilities to imitate repeated measurements.
             5. Use the most important sampled bitstrings to define a reduced subspace.
-            6. Project \(H\) into that subspace.
+            6. Project $H$ into that subspace.
             7. Solve the smaller projected eigenvalue problem.
             8. Compare the SQD estimate with the exact result.
 
@@ -113,7 +113,7 @@ def build_cells() -> list[dict]:
             H_{\mathrm{sub}} c = E S c,
             $$
 
-            where \(H_{\mathrm{sub}}\) is the projected Hamiltonian and \(S\) is the overlap matrix. In our toy example the chosen basis states are orthonormal, so \(S\) will turn out to be the identity matrix, but it is useful to keep the general formula in view.
+            where $H_{\mathrm{sub}}$ is the projected Hamiltonian and $S$ is the overlap matrix. In our toy example the chosen basis states are orthonormal, so $S$ will turn out to be the identity matrix, but it is useful to keep the general formula in view.
             """
         ),
         markdown_cell(
