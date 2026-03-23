@@ -11,8 +11,18 @@ ROOT = Path(__file__).resolve().parents[1]
 NOTEBOOK_PATH = ROOT / "notebooks" / "sample_based_quantum_diagonalization_workflow.ipynb"
 
 
+def github_friendly_markdown(source: str) -> str:
+    cleaned = dedent(source).strip("\n")
+    return (
+        cleaned.replace(r"\(", "$")
+        .replace(r"\)", "$")
+        .replace(r"\[", "$$")
+        .replace(r"\]", "$$")
+    )
+
+
 def markdown_cell(source: str) -> dict:
-    clean_source = dedent(source).strip("\n")
+    clean_source = github_friendly_markdown(source)
     return {
         "cell_type": "markdown",
         "id": "md-" + hashlib.sha1(clean_source.encode("utf-8")).hexdigest()[:10],
