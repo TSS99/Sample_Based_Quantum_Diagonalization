@@ -199,7 +199,7 @@ def build_cells() -> list[dict]:
 
             Before we approximate anything, we should know the exact answer.
 
-            Since \(H\) is a real symmetric matrix, we can use a Hermitian eigensolver to compute all eigenvalues and eigenvectors. The smallest eigenvalue is the ground-state energy.
+            Since $H$ is a real symmetric matrix, we can use a Hermitian eigensolver to compute all eigenvalues and eigenvectors. The smallest eigenvalue is the ground-state energy.
 
             In symbols, we are looking for
 
@@ -207,7 +207,7 @@ def build_cells() -> list[dict]:
             E_0 = \min \mathrm{spec}(H),
             $$
 
-            and for the corresponding normalized eigenvector \(\lvert \psi_0 \rangle\).
+            and for the corresponding normalized eigenvector $\lvert \psi_0 \rangle$.
 
             This exact solution will be our benchmark for judging whether the sample-based approach worked.
             """
