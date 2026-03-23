@@ -397,7 +397,7 @@ def build_cells() -> list[dict]:
                |\langle \psi_0 \vert \psi_{\mathrm{SQD}} \rangle|
                $$
 
-            An overlap close to \(1\) means the approximate state points in almost the same direction as the exact ground state.
+            An overlap close to $1$ means the approximate state points in almost the same direction as the exact ground state.
             """
         ),
         code_cell(
