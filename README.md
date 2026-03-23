@@ -111,3 +111,9 @@ If you edit the generator script, recreate the notebook with:
 ```bash
 python3 scripts/generate_sqd_notebook.py
 ```
+
+You can also scan the repo for GitHub-unfriendly math delimiters with:
+
+```bash
+python3 scripts/check_github_math.py
+```
