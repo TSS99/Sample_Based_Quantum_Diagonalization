@@ -322,7 +322,7 @@ def build_cells() -> list[dict]:
             r"""
             ## Step 8: Project the Hamiltonian into the sampled subspace
 
-            Once we have the basis matrix \(B\), the projected Hamiltonian is
+            Once we have the basis matrix $B$, the projected Hamiltonian is
 
             $$
             H_{\mathrm{sub}} = B^T H B.
@@ -334,7 +334,7 @@ def build_cells() -> list[dict]:
             S = B^T B.
             $$
 
-            Because the columns of \(B\) are computational basis vectors, they are orthonormal, so \(S = I\). Still, we compute it explicitly because the more general SQD workflow often involves a nontrivial overlap matrix.
+            Because the columns of $B$ are computational basis vectors, they are orthonormal, so $S = I$. Still, we compute it explicitly because the more general SQD workflow often involves a nontrivial overlap matrix.
             """
         ),
         code_cell(
