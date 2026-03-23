@@ -238,7 +238,7 @@ def build_cells() -> list[dict]:
             \lvert \psi_0 \rangle = \sum_x a_x \lvert x \rangle,
             $$
 
-            where each \(x\) is a bitstring such as \(011\) or \(101\), and \(a_x\) is the corresponding amplitude.
+            where each $x$ is a bitstring such as $011$ or $101$, and $a_x$ is the corresponding amplitude.
 
             The measurement probability of each basis state is given by the Born rule:
 
