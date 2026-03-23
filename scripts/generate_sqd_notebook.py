@@ -353,13 +353,13 @@ def build_cells() -> list[dict]:
             r"""
             ## Step 9: Solve the reduced eigenvalue problem
 
-            The reduced coefficients \(c\) satisfy
+            The reduced coefficients $c$ satisfy
 
             $$
             H_{\mathrm{sub}} c = E S c.
             $$
 
-            The smallest eigenvalue of this reduced problem is our SQD energy estimate. Once we have the coefficient vector \(c\), we lift it back into the original Hilbert space with
+            The smallest eigenvalue of this reduced problem is our SQD energy estimate. Once we have the coefficient vector $c$, we lift it back into the original Hilbert space with
 
             $$
             \lvert \psi_{\mathrm{SQD}} \rangle = B c.
