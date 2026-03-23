@@ -530,8 +530,8 @@ def build_cells() -> list[dict]:
             1. Solve or estimate a state whose measurements reveal important basis states.
             2. Sample bitstrings from that state.
             3. Keep the configurations that appear important.
-            4. Build a reduced basis matrix \(B\).
-            5. Form \(H_{\mathrm{sub}} = B^T H B\) and \(S = B^T B\).
+            4. Build a reduced basis matrix $B$.
+            5. Form $H_{\mathrm{sub}} = B^T H B$ and $S = B^T B$.
             6. Solve the reduced eigenvalue problem.
             7. Check whether the answer converges as you increase shots or enrich the subspace.
 
