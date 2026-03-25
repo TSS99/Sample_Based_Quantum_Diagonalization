@@ -508,6 +508,13 @@ def build_cells() -> list[dict]:
             $$
 
             This step is the payoff: a small diagonalization problem replaces the full one.
+
+            There are really two layers here:
+
+            1. We solve for the best coefficients **inside the reduced basis**.
+            2. We map those coefficients back to the original full space.
+
+            That second step matters because it lets us compare the SQD approximation to the exact eigenvector using the same full-space coordinates.
             """
         ),
         code_cell(
@@ -540,6 +547,8 @@ def build_cells() -> list[dict]:
                $$
 
             An overlap close to $1$ means the approximate state points in almost the same direction as the exact ground state.
+
+            Beginners often focus only on the energy, but the overlap is extremely useful because it tells us whether the approximate vector itself is faithful, not just whether one scalar number happened to come out close.
             """
         ),
         code_cell(
@@ -555,6 +564,18 @@ def build_cells() -> list[dict]:
             )
 
             comparison_df
+            """
+        ),
+        markdown_cell(
+            r"""
+            ### How to judge whether the reduced problem worked
+
+            A good SQD result usually has two features at the same time:
+
+            - a small energy error,
+            - a large state overlap.
+
+            If the energy looks good but the overlap is poor, that can still mean the reduced subspace is missing important structure. So it is healthy to inspect more than one metric whenever possible.
             """
         ),
         markdown_cell(
