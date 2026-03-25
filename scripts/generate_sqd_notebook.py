@@ -271,6 +271,14 @@ def build_cells() -> list[dict]:
             and for the corresponding normalized eigenvector $\lvert \psi_0 \rangle$.
 
             This exact solution will be our benchmark for judging whether the sample-based approach worked.
+
+            Said more plainly:
+
+            - the **eigenvalues** are the allowed energies of the system,
+            - the **lowest** eigenvalue is the ground-state energy,
+            - the matching eigenvector tells us how the ground state is spread across the basis states.
+
+            We do this exact solve first because SQD is an approximation method. Without a trusted reference, it would be much harder to tell whether the reduced subspace is actually good.
             """
         ),
         code_cell(
@@ -287,6 +295,17 @@ def build_cells() -> list[dict]:
 
             print(f"Exact ground-state energy: {exact_ground_energy:.6f}")
             energy_table
+            """
+        ),
+        markdown_cell(
+            r"""
+            ### How to read the exact output
+
+            The printed number is the best ground-state energy available for this toy Hamiltonian because it comes from the full matrix.
+
+            The table contains **all** eigenvalues, not just the smallest one. That matters because it reminds us that diagonalization gives the full energy spectrum.
+
+            For SQD, however, we mostly care about the lowest eigenvalue and its eigenvector, because that is the state whose measurement samples we will study next.
             """
         ),
         markdown_cell(
