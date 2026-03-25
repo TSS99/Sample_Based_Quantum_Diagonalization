@@ -458,6 +458,14 @@ def build_cells() -> list[dict]:
             $$
 
             Because the columns of $B$ are computational basis vectors, they are orthonormal, so $S = I$. Still, we compute it explicitly because the more general SQD workflow often involves a nontrivial overlap matrix.
+
+            This projection step is the mathematical heart of the approximation:
+
+            - the full Hamiltonian acts on the full eight-dimensional space,
+            - the basis matrix $B$ selects only the sampled directions we decided to keep,
+            - $B^T H B$ asks how the original Hamiltonian behaves **inside that smaller space**.
+
+            So after this step, we are no longer solving the original full problem directly. We are solving its restriction to a reduced subspace suggested by the samples.
             """
         ),
         code_cell(
@@ -470,6 +478,17 @@ def build_cells() -> list[dict]:
             print()
             print("Overlap matrix:")
             print(S_sub)
+            """
+        ),
+        markdown_cell(
+            r"""
+            ### Why the overlap matrix is worth computing even when it is simple
+
+            In this toy example, $S$ becomes the identity because we selected ordinary computational basis vectors.
+
+            That might make the overlap matrix feel unnecessary, but it is still a good habit to include it because many practical reduced-basis methods use vectors that are **not** automatically orthonormal.
+
+            Thinking in terms of both $H_{\mathrm{sub}}$ and $S$ prepares you for the more general version of SQD used in real research workflows.
             """
         ),
         markdown_cell(
