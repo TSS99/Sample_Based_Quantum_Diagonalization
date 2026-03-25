@@ -67,6 +67,20 @@ It explains:
 5. Why the reduced problem can be solved with a projected Hamiltonian.
 6. When SQD succeeds and when it fails.
 
+## Tiny glossary before you begin
+
+If some of the words below feel unfamiliar, keep this section nearby while reading the notebook.
+
+- **Hamiltonian**: the matrix that represents the energy structure of the system.
+- **Eigenvalue**: a special number $E$ such that $H \lvert \psi \rangle = E \lvert \psi \rangle$.
+- **Eigenstate**: the state $\lvert \psi \rangle$ that belongs to that eigenvalue.
+- **Ground state**: the eigenstate with the smallest eigenvalue.
+- **Basis state**: one of the simple reference states used to describe all other states. In this notebook the basis states are bitstrings such as $000$ and $101$.
+- **Amplitude**: the coefficient in front of a basis state in a quantum superposition.
+- **Born rule**: the rule that turns an amplitude into a measurement probability through $|a_x|^2$.
+- **Subspace**: a smaller vector space inside the full Hilbert space.
+- **Projection**: the act of restricting a large matrix problem to a smaller chosen subspace.
+
 ## Workflow at a glance
 
 The notebook follows the same sequence every time:
