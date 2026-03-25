@@ -156,6 +156,15 @@ def build_cells() -> list[dict]:
             - `matplotlib` for a few simple plots.
 
             The goal of this notebook is to make the algorithm transparent, not to hide it behind a large framework.
+
+            In other words, every library here has a simple job:
+
+            - `numpy` stores the vectors and matrices,
+            - `scipy` solves the eigenvalue problems,
+            - `pandas` lets us inspect results in a readable table,
+            - `matplotlib` helps us see convergence instead of only reading numbers.
+
+            The code cell also fixes a random seed. That matters because the sampling stage is stochastic. Using a seed means you and I can reproduce the same example and talk about the same outputs.
             """
         ),
         code_cell(
