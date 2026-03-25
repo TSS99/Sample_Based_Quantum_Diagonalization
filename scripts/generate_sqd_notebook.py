@@ -327,6 +327,13 @@ def build_cells() -> list[dict]:
             $$
 
             If SQD is going to work, our samples need to repeatedly reveal the basis states that carry most of this probability weight.
+
+            This is one of the central ideas of the whole notebook:
+
+            - the eigenvector contains amplitude information,
+            - the amplitudes determine probabilities,
+            - the probabilities tell us which basis states show up often when we measure,
+            - the frequently observed states become candidates for our reduced subspace.
             """
         ),
         code_cell(
@@ -340,6 +347,17 @@ def build_cells() -> list[dict]:
             ).sort_values("probability", ascending=False, ignore_index=True)
 
             support_df
+            """
+        ),
+        markdown_cell(
+            r"""
+            ### How to interpret the support table
+
+            Read the table from top to bottom.
+
+            The largest probabilities tell you where the ground state "lives" most strongly in the computational basis. Those high-probability bitstrings are exactly the ones we hope to recover from sampling.
+
+            If the probability mass were spread almost uniformly over all eight basis states, SQD would have much less of an advantage here. The method becomes attractive when important information is concentrated in a smaller part of the full space.
             """
         ),
         markdown_cell(
