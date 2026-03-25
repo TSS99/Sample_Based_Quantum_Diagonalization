@@ -590,6 +590,12 @@ def build_cells() -> list[dict]:
             - the number of sampled configurations we keep.
 
             The experiment below repeats the workflow many times and records the average energy error. This is useful because a single random draw can be lucky or unlucky.
+
+            This section answers a very practical beginner question:
+
+            **If I change the amount of data or the size of the reduced basis, how should the approximation respond?**
+
+            The experiment gives us a more trustworthy answer than one lucky run because it averages over many random trials.
             """
         ),
         code_cell(
@@ -638,6 +644,8 @@ def build_cells() -> list[dict]:
             - we allow a slightly larger subspace, because we reduce the chance of excluding an important basis state.
 
             The plot below helps us see that trend instead of guessing it from a table.
+
+            When you read the figure, do not look only for a perfectly smooth curve. Sampling is noisy, so the important question is whether the overall direction is improving as the resources increase.
             """
         ),
         code_cell(
@@ -669,6 +677,8 @@ def build_cells() -> list[dict]:
             Great examples also teach failure.
 
             If our subspace misses an important ground-state basis vector, the projected problem cannot recover the correct energy. We will now choose a deliberately bad subspace to see this happen in practice.
+
+            This is worth seeing because beginners sometimes think the reduced diagonalization step itself is magically fixing everything. It is not. The quality of the reduced answer depends strongly on the quality of the chosen subspace.
             """
         ),
         code_cell(
@@ -705,6 +715,24 @@ def build_cells() -> list[dict]:
             $$
             \text{good samples} \longrightarrow \text{good subspace} \longrightarrow \text{good reduced diagonalization}.
             $$
+
+            If you only remember one sentence from this notebook, let it be this:
+
+            **SQD does not guess the answer out of nowhere. It uses samples to decide where the important part of the full quantum problem probably lives, and then solves the physics inside that smaller region.**
+            """
+        ),
+        markdown_cell(
+            r"""
+            ## A few common beginner pitfalls to watch for
+
+            Before you leave the notebook, here are some easy mistakes to avoid when you revisit the workflow on your own:
+
+            1. Do not confuse **amplitudes** with **probabilities**. The probabilities come from squared magnitudes.
+            2. Do not assume a small energy error automatically means the approximate state is perfect. Check overlap too when you can.
+            3. Do not forget that the subspace comes from data. If the data are poor, the projected solve can only do so much.
+            4. Do not treat the reduced basis as arbitrary. The entire SQD idea depends on choosing it intelligently from the samples.
+
+            If those points are clear, then you have understood the main logic of the method.
             """
         ),
     ]
