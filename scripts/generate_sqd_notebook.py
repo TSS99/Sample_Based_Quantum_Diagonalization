@@ -207,6 +207,15 @@ def build_cells() -> list[dict]:
             $$
 
             The matrix below is small enough to inspect directly, but rich enough to show the SQD idea clearly.
+
+            A useful beginner mindset is this:
+
+            - each **row** and **column** corresponds to one basis state,
+            - each matrix entry tells us how those basis states are energetically related,
+            - diagonal entries describe energies tied to individual basis states,
+            - off-diagonal entries describe couplings or mixing between different basis states.
+
+            In a larger problem you would almost never print the whole Hamiltonian, but here it is worth doing once because it makes the abstract notation concrete.
             """
         ),
         code_cell(
@@ -228,6 +237,21 @@ def build_cells() -> list[dict]:
 
             hamiltonian_df = pd.DataFrame(H, index=basis_labels, columns=basis_labels)
             hamiltonian_df
+            """
+        ),
+        markdown_cell(
+            r"""
+            ### What to notice in the Hamiltonian table
+
+            When you look at the matrix above, you do **not** need to memorize every number.
+
+            Instead, notice these structural facts:
+
+            1. The matrix is symmetric, which is why a Hermitian eigensolver is appropriate.
+            2. The problem lives in an eight-dimensional space because we chose three qubits.
+            3. Off-diagonal couplings mean the true eigenstates will usually be superpositions rather than single basis states.
+
+            That last point is especially important. If the ground state were just one basis vector, there would be much less for SQD to discover from sampling.
             """
         ),
         markdown_cell(
