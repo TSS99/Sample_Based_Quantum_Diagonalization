@@ -2,6 +2,15 @@
 
 This repository is a beginner-friendly walkthrough of sample-based quantum diagonalization (SQD).
 
+If you are new to the topic, the short version is this:
+
+- a Hamiltonian matrix $H$ contains the energy information of a quantum system,
+- diagonalizing $H$ gives us its eigenvalues and eigenstates,
+- for large systems, full diagonalization becomes too expensive,
+- SQD uses samples to guess which basis states matter most and then solves a smaller problem inside that reduced space.
+
+The project is written for someone who wants more than a quick demo. The notebook explains the full workflow slowly, in plain language, and with enough mathematics to make every step precise.
+
 The main teaching resource is the notebook:
 
 - `notebooks/sample_based_quantum_diagonalization_workflow.ipynb`
@@ -16,7 +25,7 @@ The notebook builds the SQD idea from first principles:
 6. Solve a much smaller eigenvalue problem.
 7. Compare the SQD estimate against the exact answer.
 
-The goal is not only to run code, but to understand why each step works mathematically.
+The goal is not only to run code, but to understand why each step works mathematically, what information enters at each stage, and how the final reduced diagonalization connects back to the original quantum problem.
 
 ## Quick start
 
