@@ -111,6 +111,21 @@ If you are completely new, do not worry about memorizing everything on the first
 
 exact state $\rightarrow$ sampled bitstrings $\rightarrow$ reduced basis $\rightarrow$ projected Hamiltonian $\rightarrow$ approximate energy.
 
+## What you should expect to see while running it
+
+If the notebook is working correctly, you should see all of the following along the way:
+
+1. A printed Hamiltonian table indexed by three-bit basis states.
+2. A table of exact eigenvalues and a clearly identified ground-state energy.
+3. A support table showing which bitstrings carry the most probability.
+4. A measurement-count table built from finite sampling.
+5. A reduced-basis selection based on the most frequent sampled bitstrings.
+6. A projected Hamiltonian and overlap matrix.
+7. A comparison between the exact answer and the SQD approximation.
+8. A convergence plot showing how error changes with shots and subspace size.
+
+That sequence is helpful because it lets you match every mathematical idea to a concrete output.
+
 ## Repository layout
 
 ```text
