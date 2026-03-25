@@ -369,6 +369,15 @@ def build_cells() -> list[dict]:
             To keep this notebook focused on the SQD logic, we will emulate that measurement process directly from the exact probabilities.
 
             If the true distribution is $p(x)$, then a finite number of shots will not reproduce it perfectly. That finite-shot noise is important because it affects which basis states we keep in our reduced subspace.
+
+            Here is the practical meaning of the code cell below:
+
+            1. We choose a number of shots.
+            2. We sample that many bitstrings from the exact probability distribution.
+            3. We count how often each bitstring appears.
+            4. We turn those counts into empirical probabilities.
+
+            This is the bridge between the exact state vector and the sample-based workflow.
             """
         ),
         code_cell(
@@ -391,6 +400,20 @@ def build_cells() -> list[dict]:
         ),
         markdown_cell(
             r"""
+            ### What the measurement table is telling us
+
+            The measurement table is a noisy estimate of the true probability distribution.
+
+            A beginner-friendly way to think about it is:
+
+            - the support table from the previous step shows the **true** probabilities,
+            - this counts table shows a **finite-sample approximation** to those probabilities.
+
+            The more shots we take, the closer the empirical table should move toward the true one on average. That is why shot count matters later when we study convergence.
+            """
+        ),
+        markdown_cell(
+            r"""
             ## Step 7: Turn the samples into a candidate subspace
 
             The SQD idea is simple:
@@ -402,6 +425,8 @@ def build_cells() -> list[dict]:
             In this toy problem the exact ground state mostly lives on two basis states, so we will keep the two most frequently observed bitstrings.
 
             If the sampling step is informative, these two bitstrings should match the important support of the exact ground state.
+
+            In matrix language, we are now choosing the columns that will define our reduced basis. In physics language, we are deciding which measured configurations are important enough to keep.
             """
         ),
         code_cell(
