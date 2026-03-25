@@ -127,6 +127,25 @@ def build_cells() -> list[dict]:
         ),
         markdown_cell(
             r"""
+            ## A quick notation primer before we compute anything
+
+            If Dirac notation is new to you, here is the minimum you need for this notebook:
+
+            - $\lvert x \rangle$ means a basis state. In this notebook, $x$ is usually a three-bit string like $011$.
+            - A state such as $\lvert \psi \rangle$ is a vector made from a weighted combination of basis states.
+            - The weights in that combination are called amplitudes.
+            - Squaring the magnitude of an amplitude gives a measurement probability.
+
+            In ordinary linear algebra language, you can think of this notebook as solving a matrix eigenvalue problem and then approximating it inside a carefully chosen smaller vector space.
+
+            That means you can read the notebook in two equivalent ways:
+
+            - as a quantum story about states and measurements,
+            - or as a numerical linear algebra story about vectors, probabilities, and projections.
+            """
+        ),
+        markdown_cell(
+            r"""
             ## Step 2: Import the tools we need
 
             We keep the software stack intentionally small:
