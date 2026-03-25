@@ -96,6 +96,21 @@ The notebook follows the same sequence every time:
 9. Rebuild the approximate state in the full Hilbert space.
 10. Compare the approximate energy with the exact one.
 
+## How to read the notebook
+
+The notebook is designed to be read from top to bottom without skipping.
+
+The best way to use it is:
+
+1. Read each markdown cell slowly before running the next code cell.
+2. Pause after every table or plot and ask what changed mathematically.
+3. Compare the exact answer and the SQD answer instead of treating them as unrelated outputs.
+4. Rerun the sampling sections with a different random seed or shot count to build intuition.
+
+If you are completely new, do not worry about memorizing everything on the first pass. The important thing is to follow the chain of logic from:
+
+exact state $\rightarrow$ sampled bitstrings $\rightarrow$ reduced basis $\rightarrow$ projected Hamiltonian $\rightarrow$ approximate energy.
+
 ## Repository layout
 
 ```text
