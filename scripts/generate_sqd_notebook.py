@@ -90,6 +90,15 @@ def build_cells() -> list[dict]:
             In a large quantum problem, directly diagonalizing $H$ can be too expensive. Sample-based quantum diagonalization (SQD) tries to avoid that by using samples to identify a much smaller subspace that still contains the important physics.
 
             In this notebook we will work through the full logic step by step, using a small toy Hamiltonian so every piece stays visible.
+
+            By the end of the notebook, you should be able to answer all of these questions clearly:
+
+            - What problem are we solving when we diagonalize a Hamiltonian?
+            - Why do basis states and measurement samples matter?
+            - How do we go from raw bitstrings to a reduced matrix problem?
+            - Why can a smaller projected eigenvalue problem still give a good approximation?
+
+            You do **not** need to be an expert in quantum computing before starting. The notebook explains the ideas from first principles and keeps reminding you what each symbol and each code cell is doing.
             """
         ),
         markdown_cell(
