@@ -1000,6 +1000,20 @@ def build_cells() -> list[dict]:
             If those points are clear, then you have understood the main logic of the method.
             """
         ),
+        markdown_cell(
+            r"""
+            ## Try it yourself
+
+            If you want to turn this notebook from something you read into something you truly understand, try these small experiments:
+
+            1. Change the random seed and see whether the selected sampled bitstrings stay the same.
+            2. Lower the shot count and watch how the sampling table and final errors change.
+            3. Increase `top_k` and see how the reduced-basis dimension affects the approximation.
+            4. Print the exact and SQD probabilities again after your changes and compare their support.
+
+            Those tiny experiments are often the fastest way to build intuition, because they force you to connect the mathematics to the behavior of the code.
+            """
+        ),
     ]
 
 
