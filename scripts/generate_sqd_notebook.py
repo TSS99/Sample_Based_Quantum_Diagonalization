@@ -103,6 +103,23 @@ def build_cells() -> list[dict]:
         ),
         markdown_cell(
             r"""
+            ## How to use this notebook well
+
+            This notebook is designed to be studied slowly rather than skimmed quickly.
+
+            A good rhythm is:
+
+            1. Read one markdown cell carefully.
+            2. Predict what the next code cell is going to show.
+            3. Run the code cell.
+            4. Compare the output to your expectation.
+            5. Ask yourself what new mathematical object was created in that step.
+
+            If you do that consistently, the notebook becomes much easier to follow because every code cell has a clear job in the larger workflow.
+            """
+        ),
+        markdown_cell(
+            r"""
             ## Step 1: Know the roadmap before touching the code
 
             Here is the plan we will follow:
