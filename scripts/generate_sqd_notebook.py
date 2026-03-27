@@ -619,6 +619,18 @@ def build_cells() -> list[dict]:
             print(S_sub)
             """
         ),
+        code_cell(
+            """
+            dimension_summary_df = pd.DataFrame(
+                {
+                    "space": ["full Hilbert space", "reduced sampled subspace"],
+                    "dimension": [H.shape[0], H_sub.shape[0]],
+                }
+            )
+
+            dimension_summary_df
+            """
+        ),
         markdown_cell(
             r"""
             ### Why the overlap matrix is worth computing even when it is simple
@@ -628,6 +640,15 @@ def build_cells() -> list[dict]:
             That might make the overlap matrix feel unnecessary, but it is still a good habit to include it because many practical reduced-basis methods use vectors that are **not** automatically orthonormal.
 
             Thinking in terms of both $H_{\mathrm{sub}}$ and $S$ prepares you for the more general version of SQD used in real research workflows.
+            """
+        ),
+        markdown_cell(
+            r"""
+            ### Why the dimension table is worth looking at
+
+            SQD is motivated by scale, so it helps to make the size reduction explicit.
+
+            Even in this small toy example, the table reminds us that we intentionally moved from the full problem to a smaller one. In realistic settings, that reduction can be much more dramatic, which is why the method is interesting in the first place.
             """
         ),
         markdown_cell(
