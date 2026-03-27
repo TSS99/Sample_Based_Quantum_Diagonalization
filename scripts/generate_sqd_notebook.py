@@ -144,6 +144,19 @@ def build_cells() -> list[dict]:
         ),
         markdown_cell(
             r"""
+            ## What you need to know before continuing
+
+            This notebook assumes only a very small amount of background:
+
+            - you know that matrices act on vectors,
+            - you know that eigenvalues and eigenvectors come from linear algebra,
+            - you are willing to think of a quantum state as a vector with a probability interpretation.
+
+            If any of that still feels shaky, that is okay. The notebook keeps translating between quantum language and ordinary linear algebra language so you never have to rely on jargon alone.
+            """
+        ),
+        markdown_cell(
+            r"""
             ## A quick notation primer before we compute anything
 
             If Dirac notation is new to you, here is the minimum you need for this notebook:
