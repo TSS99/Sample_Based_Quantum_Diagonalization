@@ -269,6 +269,18 @@ def build_cells() -> list[dict]:
             hamiltonian_df
             """
         ),
+        code_cell(
+            """
+            basis_lookup_df = pd.DataFrame(
+                {
+                    "decimal_index": list(range(len(basis_labels))),
+                    "bitstring": basis_labels,
+                }
+            )
+
+            basis_lookup_df
+            """
+        ),
         markdown_cell(
             r"""
             ### What to notice in the Hamiltonian table
@@ -282,6 +294,20 @@ def build_cells() -> list[dict]:
             3. Off-diagonal couplings mean the true eigenstates will usually be superpositions rather than single basis states.
 
             That last point is especially important. If the ground state were just one basis vector, there would be much less for SQD to discover from sampling.
+            """
+        ),
+        markdown_cell(
+            r"""
+            ### Why the basis lookup table matters
+
+            The notebook will sometimes move back and forth between:
+
+            - a **decimal index** such as $3$,
+            - and a **bitstring label** such as $011$.
+
+            They refer to the same basis state, just written in two different ways.
+
+            Keeping that translation visible helps a lot later when we sample integer indices from arrays but want to interpret the results as measured bitstrings.
             """
         ),
         markdown_cell(
