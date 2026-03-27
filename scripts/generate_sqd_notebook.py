@@ -426,6 +426,12 @@ def build_cells() -> list[dict]:
             support_df
             """
         ),
+        code_cell(
+            """
+            support_df["cumulative_probability"] = support_df["probability"].cumsum()
+            support_df
+            """
+        ),
         markdown_cell(
             r"""
             ### How to interpret the support table
@@ -435,6 +441,17 @@ def build_cells() -> list[dict]:
             The largest probabilities tell you where the ground state "lives" most strongly in the computational basis. Those high-probability bitstrings are exactly the ones we hope to recover from sampling.
 
             If the probability mass were spread almost uniformly over all eight basis states, SQD would have much less of an advantage here. The method becomes attractive when important information is concentrated in a smaller part of the full space.
+            """
+        ),
+        markdown_cell(
+            r"""
+            ### Why cumulative probability is helpful
+
+            The cumulative column answers a beginner-friendly question:
+
+            **How much of the whole state have I already captured if I keep only the top few basis states?**
+
+            If the cumulative probability rises quickly, that means a small subset of basis states carries a large fraction of the total weight. Situations like that are exactly where sample-based subspace methods become attractive.
             """
         ),
         markdown_cell(
