@@ -767,6 +767,19 @@ def build_cells() -> list[dict]:
         ),
         markdown_cell(
             r"""
+            ### A plain-language summary of the comparison step
+
+            At this point, you should be able to say something very concrete:
+
+            - We solved the big problem exactly.
+            - We solved a smaller sampled version approximately.
+            - We measured how close those two answers are.
+
+            That is the core scientific question of the notebook. Everything that follows is about understanding **when** that approximate answer becomes more reliable and **why** it can fail.
+            """
+        ),
+        markdown_cell(
+            r"""
             ## Step 11: Study how shot count and subspace size affect the answer
 
             SQD is only as good as the subspace suggested by the samples.
