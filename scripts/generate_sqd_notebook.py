@@ -561,6 +561,25 @@ def build_cells() -> list[dict]:
             print("Shape of basis matrix B:", B.shape)
             """
         ),
+        code_cell(
+            """
+            B_df = pd.DataFrame(B, index=basis_labels, columns=[f"chosen_{bitstring}" for bitstring in selected_bitstrings])
+            B_df
+            """
+        ),
+        markdown_cell(
+            r"""
+            ### What the basis matrix $B$ is really doing
+
+            The matrix $B$ is a very concrete object:
+
+            - it has one column for each basis state we kept,
+            - each column is a standard basis vector in the full Hilbert space,
+            - multiplying by $B$ maps reduced coordinates back into the full eight-dimensional space.
+
+            For many beginners, this is the first moment when the reduced-basis idea really clicks, because $B$ is the object that physically connects the small problem to the original big one.
+            """
+        ),
         markdown_cell(
             r"""
             ## Step 8: Project the Hamiltonian into the sampled subspace
