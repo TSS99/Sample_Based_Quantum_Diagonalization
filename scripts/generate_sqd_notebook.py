@@ -933,6 +933,32 @@ def build_cells() -> list[dict]:
             print(f"Exact ground-state energy:   {exact_ground_energy:.6f}")
             """
         ),
+        code_cell(
+            """
+            failure_comparison_df = pd.DataFrame(
+                {
+                    "case": ["exact ground state", "good sampled subspace", "bad chosen subspace"],
+                    "energy": [exact_ground_energy, sqd_energy, bad_energy],
+                }
+            )
+            failure_comparison_df["absolute_error"] = abs(failure_comparison_df["energy"] - exact_ground_energy)
+
+            failure_comparison_df
+            """
+        ),
+        markdown_cell(
+            r"""
+            ### Why the failure table matters
+
+            This table puts three situations next to each other:
+
+            - the exact answer,
+            - the SQD answer from the informative sampled subspace,
+            - the answer from a deliberately poor subspace.
+
+            Seeing those side by side makes the logic of SQD very concrete: the quality of the reduced diagonalization depends strongly on whether the reduced basis actually contains the important physics.
+            """
+        ),
         markdown_cell(
             r"""
             ## Step 14: What this notebook should leave you with
