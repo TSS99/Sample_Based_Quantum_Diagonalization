@@ -691,6 +691,33 @@ def build_cells() -> list[dict]:
             print(sqd_state)
             """
         ),
+        code_cell(
+            """
+            state_probability_comparison_df = pd.DataFrame(
+                {
+                    "bitstring": basis_labels,
+                    "exact_probability": np.abs(exact_ground_state) ** 2,
+                    "sqd_probability": np.abs(sqd_state) ** 2,
+                }
+            ).sort_values("exact_probability", ascending=False, ignore_index=True)
+
+            state_probability_comparison_df
+            """
+        ),
+        markdown_cell(
+            r"""
+            ### Why compare probabilities of the exact and reconstructed states
+
+            Energies are important, but they do not show the full shape of the state.
+
+            This table gives a more visual intuition:
+
+            - the exact column shows where the true ground state lives,
+            - the SQD column shows where the reconstructed reduced-space state lives.
+
+            If the important rows match reasonably well, then the reduced basis is not only reproducing one number, it is capturing the structure of the state itself.
+            """
+        ),
         markdown_cell(
             r"""
             ## Step 10: Compare the SQD estimate with the exact answer
