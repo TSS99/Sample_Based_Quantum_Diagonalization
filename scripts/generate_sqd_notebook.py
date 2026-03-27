@@ -353,6 +353,12 @@ def build_cells() -> list[dict]:
             energy_table
             """
         ),
+        code_cell(
+            """
+            normalization_check = np.linalg.norm(exact_ground_state)
+            print(f"Norm of the exact ground-state vector: {normalization_check:.6f}")
+            """
+        ),
         markdown_cell(
             r"""
             ### How to read the exact output
@@ -362,6 +368,21 @@ def build_cells() -> list[dict]:
             The table contains **all** eigenvalues, not just the smallest one. That matters because it reminds us that diagonalization gives the full energy spectrum.
 
             For SQD, however, we mostly care about the lowest eigenvalue and its eigenvector, because that is the state whose measurement samples we will study next.
+            """
+        ),
+        markdown_cell(
+            r"""
+            ### Why checking normalization is a good habit
+
+            A valid quantum state should have norm $1$.
+
+            In symbols,
+
+            $$
+            \sum_x |a_x|^2 = 1.
+            $$
+
+            Printing the norm is a simple sanity check. It reassures us that the eigenvector we are about to interpret probabilistically really can be used to define a proper probability distribution.
             """
         ),
         markdown_cell(
