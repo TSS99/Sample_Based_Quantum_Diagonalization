@@ -492,6 +492,18 @@ def build_cells() -> list[dict]:
             counts_df
             """
         ),
+        code_cell(
+            """
+            probability_comparison_df = (
+                support_df[["bitstring", "probability"]]
+                .merge(counts_df[["bitstring", "empirical_probability"]], on="bitstring", how="left")
+                .fillna({"empirical_probability": 0.0})
+                .sort_values("probability", ascending=False, ignore_index=True)
+            )
+
+            probability_comparison_df
+            """
+        ),
         markdown_cell(
             r"""
             ### What the measurement table is telling us
@@ -504,6 +516,20 @@ def build_cells() -> list[dict]:
             - this counts table shows a **finite-sample approximation** to those probabilities.
 
             The more shots we take, the closer the empirical table should move toward the true one on average. That is why shot count matters later when we study convergence.
+            """
+        ),
+        markdown_cell(
+            r"""
+            ### How to read the true-vs-empirical comparison table
+
+            This new table puts the exact probabilities and the sampled probabilities side by side.
+
+            That makes it easier to see two things at once:
+
+            - where the sampling is already doing a good job,
+            - and where finite-shot noise is still distorting the picture.
+
+            If the most important rows line up reasonably well, then our sampling stage is already giving us a useful clue about which basis states deserve a place in the reduced subspace.
             """
         ),
         markdown_cell(
