@@ -849,6 +849,17 @@ def build_cells() -> list[dict]:
             experiment_df
             """
         ),
+        code_cell(
+            """
+            experiment_pivot_df = experiment_df.pivot(
+                index="shots",
+                columns="subspace_size",
+                values="mean_abs_energy_error",
+            )
+
+            experiment_pivot_df
+            """
+        ),
         markdown_cell(
             r"""
             ## Step 12: Visualize the convergence trend
@@ -861,6 +872,19 @@ def build_cells() -> list[dict]:
             The plot below helps us see that trend instead of guessing it from a table.
 
             When you read the figure, do not look only for a perfectly smooth curve. Sampling is noisy, so the important question is whether the overall direction is improving as the resources increase.
+            """
+        ),
+        markdown_cell(
+            r"""
+            ### Why the pivot table is useful before the plot
+
+            The pivoted table is a compact summary:
+
+            - each row fixes the number of shots,
+            - each column fixes the subspace size,
+            - each entry tells you the mean absolute energy error.
+
+            Some learners find tables easier to reason about first and plots easier to interpret second. Keeping both views makes the convergence story easier to digest.
             """
         ),
         code_cell(
