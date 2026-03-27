@@ -798,6 +798,21 @@ def build_cells() -> list[dict]:
             The experiment gives us a more trustworthy answer than one lucky run because it averages over many random trials.
             """
         ),
+        markdown_cell(
+            r"""
+            ### What the helper function below will do
+
+            Before you run the code, it helps to know the role of the helper function:
+
+            - it performs one full SQD trial for a chosen shot count and subspace size,
+            - it returns the absolute energy error for that one trial,
+            - we then repeat that process many times and average the errors.
+
+            So the function is basically a compact way of saying:
+
+            "Repeat the sample-based workflow under one chosen setting, and report how far the reduced answer is from the exact one."
+            """
+        ),
         code_cell(
             """
             def run_sqd_trial(shots: int, top_k: int, seed: int) -> float:
