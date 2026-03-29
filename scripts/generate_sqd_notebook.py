@@ -556,6 +556,12 @@ def build_cells() -> list[dict]:
             probability_comparison_df
             """
         ),
+        code_cell(
+            """
+            total_empirical_probability = counts_df["empirical_probability"].sum()
+            print(f"Total empirical probability: {total_empirical_probability:.6f}")
+            """
+        ),
         markdown_cell(
             r"""
             ### What the measurement table is telling us
@@ -568,6 +574,15 @@ def build_cells() -> list[dict]:
             - this counts table shows a **finite-sample approximation** to those probabilities.
 
             The more shots we take, the closer the empirical table should move toward the true one on average. That is why shot count matters later when we study convergence.
+            """
+        ),
+        markdown_cell(
+            r"""
+            ### Why the empirical probabilities should also sum to one
+
+            We built the empirical probabilities by dividing each count by the total number of shots.
+
+            That means the empirical probabilities should add up to $1$ as well. Checking that is a quick way to reassure yourself that the counts table is being interpreted correctly before you use it to choose a reduced basis.
             """
         ),
         markdown_cell(
