@@ -157,6 +157,21 @@ def build_cells() -> list[dict]:
         ),
         markdown_cell(
             r"""
+            ## Section map
+
+            To make the notebook easier to navigate, here is the role of each major block:
+
+            - **Steps 1-3** set up the notation, basis, and Hamiltonian.
+            - **Steps 4-5** solve the exact problem and inspect the true ground state.
+            - **Steps 6-7** imitate measurements and choose a reduced basis from samples.
+            - **Steps 8-10** solve the reduced problem and compare it with the exact answer.
+            - **Steps 11-14** test robustness, show failure, and summarize the full idea.
+
+            If you ever feel lost, come back to this map and ask which of those five jobs the current cell belongs to.
+            """
+        ),
+        markdown_cell(
+            r"""
             ## A quick notation primer before we compute anything
 
             If Dirac notation is new to you, here is the minimum you need for this notebook:
