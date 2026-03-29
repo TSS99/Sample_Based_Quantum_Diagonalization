@@ -467,6 +467,12 @@ def build_cells() -> list[dict]:
             support_df
             """
         ),
+        code_cell(
+            """
+            total_exact_probability = support_df["probability"].sum()
+            print(f"Total exact probability: {total_exact_probability:.6f}")
+            """
+        ),
         markdown_cell(
             r"""
             ### How to interpret the support table
@@ -476,6 +482,17 @@ def build_cells() -> list[dict]:
             The largest probabilities tell you where the ground state "lives" most strongly in the computational basis. Those high-probability bitstrings are exactly the ones we hope to recover from sampling.
 
             If the probability mass were spread almost uniformly over all eight basis states, SQD would have much less of an advantage here. The method becomes attractive when important information is concentrated in a smaller part of the full space.
+            """
+        ),
+        markdown_cell(
+            r"""
+            ### Why summing the probabilities is a useful beginner check
+
+            The total exact probability should be $1$.
+
+            That statement may sound obvious, but it is a helpful checkpoint because it reminds us that the ground-state vector is being interpreted as a genuine probability distribution over basis states.
+
+            Whenever you work with amplitudes and probabilities, little sanity checks like this help keep the story mathematically grounded.
             """
         ),
         markdown_cell(
