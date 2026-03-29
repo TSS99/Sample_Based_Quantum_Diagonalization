@@ -296,6 +296,12 @@ def build_cells() -> list[dict]:
             basis_lookup_df
             """
         ),
+        code_cell(
+            """
+            example_state = pd.Series(np.eye(len(basis_labels))[:, 3], index=basis_labels, name="|011>")
+            example_state
+            """
+        ),
         markdown_cell(
             r"""
             ### What to notice in the Hamiltonian table
@@ -309,6 +315,20 @@ def build_cells() -> list[dict]:
             3. Off-diagonal couplings mean the true eigenstates will usually be superpositions rather than single basis states.
 
             That last point is especially important. If the ground state were just one basis vector, there would be much less for SQD to discover from sampling.
+            """
+        ),
+        markdown_cell(
+            r"""
+            ### Why the one-hot basis example helps
+
+            The short vector printed above shows what a single computational basis state looks like in coordinates.
+
+            For example, $\lvert 011 \rangle$ appears as a vector with:
+
+            - a single $1$ in the row labeled $011$,
+            - and $0$ everywhere else.
+
+            Later in the notebook, superposition states are built by combining these basis vectors with different amplitudes. Seeing one basis vector explicitly first makes that idea easier to picture.
             """
         ),
         markdown_cell(
