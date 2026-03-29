@@ -634,6 +634,19 @@ def build_cells() -> list[dict]:
             B_df
             """
         ),
+        code_cell(
+            """
+            exact_top_bitstrings = support_df.head(top_k)["bitstring"].tolist()
+            selection_check_df = pd.DataFrame(
+                {
+                    "role": ["top exact support", "sample-chosen subspace"],
+                    "bitstrings": [", ".join(exact_top_bitstrings), ", ".join(selected_bitstrings)],
+                }
+            )
+
+            selection_check_df
+            """
+        ),
         markdown_cell(
             r"""
             ### What the basis matrix $B$ is really doing
@@ -645,6 +658,19 @@ def build_cells() -> list[dict]:
             - multiplying by $B$ maps reduced coordinates back into the full eight-dimensional space.
 
             For many beginners, this is the first moment when the reduced-basis idea really clicks, because $B$ is the object that physically connects the small problem to the original big one.
+            """
+        ),
+        markdown_cell(
+            r"""
+            ### Why compare the sampled choice to the exact top support
+
+            This comparison is a gentle diagnostic.
+
+            It asks:
+
+            **Did the finite-shot sampling recover the same important basis states that the exact state told us to expect?**
+
+            When the answer is mostly yes, the reduced subspace is starting from a strong position. When the answer is no, the later reduced diagonalization has a much harder job.
             """
         ),
         markdown_cell(
