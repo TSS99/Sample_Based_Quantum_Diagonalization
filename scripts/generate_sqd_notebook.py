@@ -797,6 +797,25 @@ def build_cells() -> list[dict]:
             state_probability_comparison_df
             """
         ),
+        code_cell(
+            """
+            ideal_indices = support_df.head(top_k)["bitstring"].map(lambda bitstring: basis_labels.index(bitstring)).tolist()
+            B_ideal = np.eye(len(basis_labels))[:, ideal_indices]
+            H_ideal = B_ideal.T @ H @ B_ideal
+            S_ideal = B_ideal.T @ B_ideal
+            ideal_energy = eigh(H_ideal, S_ideal)[0][0]
+
+            ideal_comparison_df = pd.DataFrame(
+                {
+                    "case": ["exact full solve", "sample-chosen reduced basis", "ideal top-support reduced basis"],
+                    "energy": [exact_ground_energy, sqd_energy, ideal_energy],
+                }
+            )
+            ideal_comparison_df["absolute_error"] = abs(ideal_comparison_df["energy"] - exact_ground_energy)
+
+            ideal_comparison_df
+            """
+        ),
         markdown_cell(
             r"""
             ### Why compare probabilities of the exact and reconstructed states
@@ -809,6 +828,18 @@ def build_cells() -> list[dict]:
             - the SQD column shows where the reconstructed reduced-space state lives.
 
             If the important rows match reasonably well, then the reduced basis is not only reproducing one number, it is capturing the structure of the state itself.
+            """
+        ),
+        markdown_cell(
+            r"""
+            ### Why the ideal reduced-basis comparison is useful
+
+            This extra comparison helps separate two different effects:
+
+            - **projection error**: the error caused by working in a smaller space at all,
+            - **sampling error**: the error caused by choosing that space from finite noisy samples.
+
+            The ideal reduced-basis row says, "What if we had picked the top support perfectly?" Comparing that row to the sampled row tells you how much the sampling stage itself is helping or hurting.
             """
         ),
         markdown_cell(
