@@ -1004,6 +1004,22 @@ def build_cells() -> list[dict]:
             An overlap close to $1$ means the approximate state points in almost the same direction as the exact ground state.
 
             Beginners often focus only on the energy, but the overlap is extremely useful because it tells us whether the approximate vector itself is faithful, not just whether one scalar number happened to come out close.
+
+            Here is the mathematical logic of these two metrics:
+
+            $$
+            \text{energy error} = |E_{\mathrm{SQD}} - E_0|
+            $$
+
+            measures how far the approximate energy is from the exact ground-state energy, while
+
+            $$
+            \text{state overlap} = |\langle \psi_0 \vert \psi_{\mathrm{SQD}} \rangle|
+            $$
+
+            measures how aligned the two state vectors are.
+
+            So one metric compares **numbers**, and the other compares **directions in vector space**.
             """
         ),
         code_cell(
