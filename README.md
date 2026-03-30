@@ -168,6 +168,8 @@ That is not because SQD only matters for small problems. It is because small pro
 
 Once the workflow feels natural on a toy model, it becomes much easier to understand how the same structure scales to chemistry, materials, or larger fermionic systems.
 
+In other words, this repository teaches the method on a small system so the logic is easy to see before the same ideas are applied to harder problems.
+
 ## GitHub rendering note
 
 The markdown in this repository uses GitHub-friendly math delimiters such as `$...$` and `$$...$$` so the equations render more reliably in both the README and the notebook preview on GitHub.
