@@ -204,6 +204,17 @@ def build_cells() -> list[dict]:
 
             - as a quantum story about states and measurements,
             - or as a numerical linear algebra story about vectors, probabilities, and projections.
+
+            There are also a few dimensions worth keeping in mind:
+
+            - the full state vector has length $8$ because $2^3 = 8$,
+            - the Hamiltonian is therefore an $8 \times 8$ matrix,
+            - later, the reduced-basis coefficient vector $c$ will be shorter than length $8$ because it lives in the sampled subspace.
+
+            So whenever you see a new symbol, you should ask two simple questions:
+
+            1. Is this object a scalar, a vector, or a matrix?
+            2. Which space does it live in: the full $8$-dimensional space, or the smaller reduced subspace?
             """
         ),
         markdown_cell(
