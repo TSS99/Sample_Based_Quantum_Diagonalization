@@ -877,6 +877,41 @@ def build_cells() -> list[dict]:
             2. We map those coefficients back to the original full space.
 
             That second step matters because it lets us compare the SQD approximation to the exact eigenvector using the same full-space coordinates.
+
+            The reduced eigenvalue equation also has a clean derivation. Start with the trial state
+
+            $$
+            \lvert \phi \rangle = B c.
+            $$
+
+            If the basis is not assumed orthonormal, then the norm of this state is
+
+            $$
+            \langle \phi \rvert \phi \rangle
+            = (B c)^T (B c)
+            = c^T (B^T B) c
+            = c^T S c.
+            $$
+
+            The energy numerator is
+
+            $$
+            \langle \phi \rvert H \lvert \phi \rangle
+            = c^T (B^T H B) c
+            = c^T H_{\mathrm{sub}} c.
+            $$
+
+            Minimizing the energy ratio
+
+            $$
+            \frac{c^T H_{\mathrm{sub}} c}{c^T S c}
+            $$
+
+            leads to the generalized eigenvalue problem
+
+            $$
+            H_{\mathrm{sub}} c = E S c.
+            $$
             """
         ),
         code_cell(
