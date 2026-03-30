@@ -86,6 +86,7 @@ If some of the words below feel unfamiliar, keep this section nearby while readi
 - **Basis state**: one of the simple reference states used to describe all other states. In this notebook the basis states are bitstrings such as $000$ and $101$.
 - **Amplitude**: the coefficient in front of a basis state in a quantum superposition.
 - **Born rule**: the rule that turns an amplitude into a measurement probability through $|a_x|^2$.
+- **Hilbert space**: the vector space that contains all allowed states of the quantum system.
 - **Subspace**: a smaller vector space inside the full Hilbert space.
 - **Projection**: the act of restricting a large matrix problem to a smaller chosen subspace.
 
