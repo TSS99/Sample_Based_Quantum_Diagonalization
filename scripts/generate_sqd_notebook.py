@@ -475,6 +475,11 @@ def build_cells() -> list[dict]:
             p(x) = |a_x|^2.
             $$
 
+            This formula is doing two jobs at once:
+
+            1. It turns the linear algebra object $\lvert \psi_0 \rangle$ into a probability model.
+            2. It explains why even a state with positive and negative amplitudes can still lead to nonnegative probabilities.
+
             If SQD is going to work, our samples need to repeatedly reveal the basis states that carry most of this probability weight.
 
             This is one of the central ideas of the whole notebook:
