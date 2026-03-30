@@ -405,6 +405,8 @@ def build_cells() -> list[dict]:
             - the matching eigenvector tells us how the ground state is spread across the basis states.
 
             We do this exact solve first because SQD is an approximation method. Without a trusted reference, it would be much harder to tell whether the reduced subspace is actually good.
+
+            Another way to say this is that diagonalization writes the Hamiltonian in a basis where it acts as simply as possible. In that eigenbasis, each eigenvector is only scaled by its eigenvalue rather than mixed with the others.
             """
         ),
         code_cell(
