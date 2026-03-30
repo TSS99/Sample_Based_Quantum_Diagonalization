@@ -11,6 +11,8 @@ If you are new to the topic, the short version is this:
 
 The project is written for someone who wants more than a quick demo. The notebook explains the full workflow slowly, in plain language, and with enough mathematics to make every step precise.
 
+You can think of SQD as a two-part idea: first use samples to discover where the important physics seems to live, then solve the smaller problem inside that discovered region.
+
 The main teaching resource is the notebook:
 
 - `notebooks/sample_based_quantum_diagonalization_workflow.ipynb`
