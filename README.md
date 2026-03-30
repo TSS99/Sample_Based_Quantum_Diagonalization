@@ -52,6 +52,8 @@ Activate the environment whenever you return to the project:
 source .venv/bin/activate
 ```
 
+If your shell prompt changes after running that command, that is a good sign that the virtual environment is active.
+
 Launch JupyterLab:
 
 ```bash
