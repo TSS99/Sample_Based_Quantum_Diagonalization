@@ -89,6 +89,7 @@ If some of the words below feel unfamiliar, keep this section nearby while readi
 - **Hilbert space**: the vector space that contains all allowed states of the quantum system.
 - **Subspace**: a smaller vector space inside the full Hilbert space.
 - **Projection**: the act of restricting a large matrix problem to a smaller chosen subspace.
+- **Shot**: one measurement sample drawn from the probability distribution of the state.
 
 ## Workflow at a glance
 
