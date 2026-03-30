@@ -289,6 +289,13 @@ def build_cells() -> list[dict]:
             - off-diagonal entries describe couplings or mixing between different basis states.
 
             In a larger problem you would almost never print the whole Hamiltonian, but here it is worth doing once because it makes the abstract notation concrete.
+
+            There are also two important mathematical facts hiding in plain sight:
+
+            1. Because the matrix is symmetric, it has a complete set of orthonormal eigenvectors.
+            2. Because it is real symmetric, all of its eigenvalues are real numbers.
+
+            Those facts are exactly why diagonalization is such a natural thing to do here.
             """
         ),
         code_cell(
