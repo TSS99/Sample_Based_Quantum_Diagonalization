@@ -495,6 +495,22 @@ def build_cells() -> list[dict]:
             1. It turns the linear algebra object $\lvert \psi_0 \rangle$ into a probability model.
             2. It explains why even a state with positive and negative amplitudes can still lead to nonnegative probabilities.
 
+            In our finite basis, the logic is:
+
+            $$
+            \lvert \psi_0 \rangle = \sum_x a_x \lvert x \rangle
+            \quad \Longrightarrow \quad
+            p(x) = |a_x|^2.
+            $$
+
+            Then normalization tells us
+
+            $$
+            \sum_x p(x) = \sum_x |a_x|^2 = 1.
+            $$
+
+            So the amplitudes are not probabilities themselves, but their squared magnitudes produce a valid probability distribution.
+
             If SQD is going to work, our samples need to repeatedly reveal the basis states that carry most of this probability weight.
 
             This is one of the central ideas of the whole notebook:
