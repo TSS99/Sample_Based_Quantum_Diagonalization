@@ -118,6 +118,7 @@ The best way to use it is:
 2. Pause after every table or plot and ask what changed mathematically.
 3. Compare the exact answer and the SQD answer instead of treating them as unrelated outputs.
 4. Rerun the sampling sections with a different random seed or shot count to build intuition.
+5. Keep the glossary nearby if a term appears that you have not used before.
 
 If you are completely new, do not worry about memorizing everything on the first pass. The important thing is to follow the chain of logic from:
 
