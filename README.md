@@ -184,6 +184,8 @@ If you edit the generator script, recreate the notebook with:
 python3 scripts/generate_sqd_notebook.py
 ```
 
+That command rebuilds the `.ipynb` file from the generator source, so it is the right step after any notebook-content edit made in `scripts/generate_sqd_notebook.py`.
+
 You can also scan the repo for GitHub-unfriendly math delimiters with:
 
 ```bash
