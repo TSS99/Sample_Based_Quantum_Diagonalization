@@ -44,6 +44,8 @@ Create the virtual environment and install the required libraries:
 ./setup_env.sh
 ```
 
+This script creates `.venv`, installs the packages from `requirements.txt`, and registers a Jupyter kernel for the project.
+
 Activate the environment whenever you return to the project:
 
 ```bash
