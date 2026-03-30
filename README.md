@@ -60,6 +60,8 @@ Launch JupyterLab:
 ./start_notebook.sh
 ```
 
+Open the notebook file from the `notebooks/` folder once JupyterLab starts.
+
 ## What the notebook teaches
 
 The notebook is written for a reader who may be new to both quantum computing and numerical diagonalization.
