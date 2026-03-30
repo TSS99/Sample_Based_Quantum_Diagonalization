@@ -407,6 +407,21 @@ def build_cells() -> list[dict]:
             We do this exact solve first because SQD is an approximation method. Without a trusted reference, it would be much harder to tell whether the reduced subspace is actually good.
 
             Another way to say this is that diagonalization writes the Hamiltonian in a basis where it acts as simply as possible. In that eigenbasis, each eigenvector is only scaled by its eigenvalue rather than mixed with the others.
+
+            Written step by step, the eigenvalue equation says:
+
+            $$
+            H \lvert \psi_i \rangle = E_i \lvert \psi_i \rangle.
+            $$
+
+            That means:
+
+            1. start with the vector $\lvert \psi_i \rangle$,
+            2. apply the matrix $H$,
+            3. the output points in the **same direction** as $\lvert \psi_i \rangle$,
+            4. the only change is a scaling by the number $E_i$.
+
+            So an eigenvector is a direction that the matrix does not rotate away from itself, and the eigenvalue tells you the scaling attached to that direction.
             """
         ),
         code_cell(
