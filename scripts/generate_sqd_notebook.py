@@ -566,6 +566,11 @@ def build_cells() -> list[dict]:
             4. We turn those counts into empirical probabilities.
 
             This is the bridge between the exact state vector and the sample-based workflow.
+
+            Mathematically, we are replacing exact probabilities with estimates based on finitely many random draws. So from this point onward, the workflow contains both:
+
+            - a deterministic object: the true probability distribution,
+            - a random object: the finite sample drawn from that distribution.
             """
         ),
         code_cell(
