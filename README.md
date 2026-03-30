@@ -151,6 +151,7 @@ You should also expect the exact probabilities and sampled probabilities to be c
 ├── notebooks/
 │   └── sample_based_quantum_diagonalization_workflow.ipynb
 └── scripts/
+    ├── check_github_math.py
     └── generate_sqd_notebook.py
 ```
 
