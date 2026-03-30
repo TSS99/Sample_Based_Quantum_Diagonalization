@@ -661,6 +661,12 @@ def build_cells() -> list[dict]:
             If the sampling step is informative, these two bitstrings should match the important support of the exact ground state.
 
             In matrix language, we are now choosing the columns that will define our reduced basis. In physics language, we are deciding which measured configurations are important enough to keep.
+
+            The key approximation assumption here is:
+
+            **the basis states that matter most for the target eigenstate are likely to appear most often in the samples.**
+
+            SQD works well when that assumption is reasonably true and works poorly when important basis states are missed or badly under-sampled.
             """
         ),
         code_cell(
