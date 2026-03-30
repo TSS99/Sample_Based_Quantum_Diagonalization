@@ -751,6 +751,31 @@ def build_cells() -> list[dict]:
             - $B^T H B$ asks how the original Hamiltonian behaves **inside that smaller space**.
 
             So after this step, we are no longer solving the original full problem directly. We are solving its restriction to a reduced subspace suggested by the samples.
+
+            If you like dimensions, the matrix sizes are:
+
+            - $H$ is $8 \times 8$,
+            - $B$ is $8 \times k$,
+            - $B^T$ is $k \times 8$,
+            - so $B^T H B$ is $k \times k$.
+
+            That is the whole computational payoff in one line: the big matrix is turned into a smaller matrix.
+
+            If you want to see the algebra step by step, let $\lvert \phi \rangle$ be a trial state built from the reduced basis:
+
+            $$
+            \lvert \phi \rangle = B c.
+            $$
+
+            Then its energy expectation value is
+
+            $$
+            \langle \phi \rvert H \lvert \phi \rangle
+            = (B c)^T H (B c)
+            = c^T (B^T H B) c.
+            $$
+
+            This is the precise reason the projected Hamiltonian is $H_{\mathrm{sub}} = B^T H B$.
             """
         ),
         code_cell(
