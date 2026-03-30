@@ -138,6 +138,7 @@ If the notebook is working correctly, you should see all of the following along 
 8. A convergence plot showing how error changes with shots and subspace size.
 
 That sequence is helpful because it lets you match every mathematical idea to a concrete output.
+You should also expect the exact probabilities and sampled probabilities to be close, but not perfectly identical, because the samples come from finitely many shots.
 
 ## Repository layout
 
