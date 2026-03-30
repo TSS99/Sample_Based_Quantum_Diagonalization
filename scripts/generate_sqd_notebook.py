@@ -157,6 +157,23 @@ def build_cells() -> list[dict]:
         ),
         markdown_cell(
             r"""
+            ## Mathematical assumptions used in this notebook
+
+            We will be very explicit about what assumptions are being made, because that makes the later calculations much easier to trust.
+
+            In this notebook we assume:
+
+            1. The Hilbert space is finite-dimensional, so every state can be written as a finite column vector.
+            2. We work in the computational basis, which means basis states are orthonormal.
+            3. The Hamiltonian is represented by a real symmetric matrix, so Hermitian linear algebra applies and all eigenvalues are real.
+            4. The ground-state vector is normalized, so its squared amplitudes form a valid probability distribution.
+            5. Sampling is performed from that probability distribution with a finite number of shots.
+
+            None of those assumptions are exotic, but writing them down clearly helps us understand why each mathematical step later is legitimate.
+            """
+        ),
+        markdown_cell(
+            r"""
             ## Section map
 
             To make the notebook easier to navigate, here is the role of each major block:
