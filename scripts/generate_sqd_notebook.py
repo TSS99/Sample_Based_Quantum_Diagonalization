@@ -754,6 +754,16 @@ def build_cells() -> list[dict]:
             **the basis states that matter most for the target eigenstate are likely to appear most often in the samples.**
 
             SQD works well when that assumption is reasonably true and works poorly when important basis states are missed or badly under-sampled.
+
+            In symbols, if we keep $k$ sampled bitstrings, we are approximately selecting the indices with the largest empirical probabilities:
+
+            $$
+            \{x_1, \dots, x_k\}
+            \approx
+            \operatorname*{arg\,topk}_x \hat{p}(x).
+            $$
+
+            Everything that follows depends on this reduced set being a good summary of the important support of the exact state.
             """
         ),
         code_cell(
