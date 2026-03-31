@@ -215,6 +215,18 @@ def build_cells() -> list[dict]:
 
             1. Is this object a scalar, a vector, or a matrix?
             2. Which space does it live in: the full $8$-dimensional space, or the smaller reduced subspace?
+
+            We will also use the computational basis as an orthonormal basis, which means
+
+            $$
+            \langle x \vert y \rangle =
+            \begin{cases}
+            1, & x = y, \\
+            0, & x \neq y.
+            \end{cases}
+            $$
+
+            This orthonormality assumption is what lets us move cleanly between basis expansions, amplitudes, and probabilities.
             """
         ),
         markdown_cell(
