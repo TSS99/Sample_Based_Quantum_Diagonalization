@@ -646,6 +646,18 @@ def build_cells() -> list[dict]:
 
             - a deterministic object: the true probability distribution,
             - a random object: the finite sample drawn from that distribution.
+
+            If the number of shots is $N$, then the expected number of times a bitstring $x$ appears is
+
+            $$
+            \mathbb{E}[\text{count}(x)] = N p(x).
+            $$
+
+            Dividing by $N$ gives the empirical probability estimate
+
+            $$
+            \hat{p}(x) = \frac{\text{count}(x)}{N}.
+            $$
             """
         ),
         code_cell(
