@@ -872,7 +872,15 @@ def build_cells() -> list[dict]:
             = c^T (B^T H B) c.
             $$
 
-            This is the precise reason the projected Hamiltonian is $H_{\mathrm{sub}} = B^T H B$.
+            The corresponding norm is
+
+            $$
+            \langle \phi \vert \phi \rangle
+            = (B c)^T (B c)
+            = c^T (B^T B) c.
+            $$
+
+            This is the precise reason the projected Hamiltonian is $H_{\mathrm{sub}} = B^T H B$ and the overlap matrix is $S = B^T B$.
             """
         ),
         code_cell(
