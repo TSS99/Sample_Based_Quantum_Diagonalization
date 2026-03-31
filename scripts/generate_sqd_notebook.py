@@ -310,6 +310,14 @@ def build_cells() -> list[dict]:
             - diagonal entries describe energies tied to individual basis states,
             - off-diagonal entries describe couplings or mixing between different basis states.
 
+            More formally, the matrix entries are
+
+            $$
+            H_{xy} = \langle x \vert H \vert y \rangle,
+            $$
+
+            so each number tells us how the Hamiltonian connects basis state $\lvert y \rangle$ to basis state $\lvert x \rangle$.
+
             In a larger problem you would almost never print the whole Hamiltonian, but here it is worth doing once because it makes the abstract notation concrete.
 
             There are also two important mathematical facts hiding in plain sight:
