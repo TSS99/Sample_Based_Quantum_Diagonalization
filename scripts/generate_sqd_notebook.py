@@ -452,6 +452,14 @@ def build_cells() -> list[dict]:
             4. the only change is a scaling by the number $E_i$.
 
             So an eigenvector is a direction that the matrix does not rotate away from itself, and the eigenvalue tells you the scaling attached to that direction.
+
+            For a symmetric matrix, the full eigendecomposition can be written as
+
+            $$
+            H = \sum_i E_i \lvert \psi_i \rangle \langle \psi_i \rvert,
+            $$
+
+            which means the entire Hamiltonian can be reconstructed from its eigenvalues and orthonormal eigenvectors.
             """
         ),
         code_cell(
