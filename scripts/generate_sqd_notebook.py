@@ -549,6 +549,12 @@ def build_cells() -> list[dict]:
 
             So the amplitudes are not probabilities themselves, but their squared magnitudes produce a valid probability distribution.
 
+            For example, if the coefficient in front of $\lvert 011 \rangle$ is $a_{011}$, then the probability of measuring the bitstring $011$ is
+
+            $$
+            p(011) = |a_{011}|^2.
+            $$
+
             If SQD is going to work, our samples need to repeatedly reveal the basis states that carry most of this probability weight.
 
             This is one of the central ideas of the whole notebook:
