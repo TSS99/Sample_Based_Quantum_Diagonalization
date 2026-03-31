@@ -986,6 +986,14 @@ def build_cells() -> list[dict]:
             $$
             H_{\mathrm{sub}} c = E S c.
             $$
+
+            Once we solve for $c$, the reconstruction step
+
+            $$
+            \lvert \psi_{\mathrm{SQD}} \rangle = B c
+            $$
+
+            means that each coefficient in $c$ tells us how much of each selected basis vector is used in the final approximate state.
             """
         ),
         code_cell(
