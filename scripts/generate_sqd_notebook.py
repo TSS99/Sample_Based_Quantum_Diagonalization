@@ -1162,6 +1162,16 @@ def build_cells() -> list[dict]:
             **If I change the amount of data or the size of the reduced basis, how should the approximation respond?**
 
             The experiment gives us a more trustworthy answer than one lucky run because it averages over many random trials.
+
+            Very loosely, the sampling error in empirical probabilities tends to shrink as the number of shots increases, so we expect
+
+            $$
+            \hat{p}(x) \to p(x)
+            \quad \text{as} \quad
+            N \to \infty.
+            $$
+
+            The notebook does not prove a full convergence theorem, but it does let you see the practical consequence of this idea numerically.
             """
         ),
         markdown_cell(
