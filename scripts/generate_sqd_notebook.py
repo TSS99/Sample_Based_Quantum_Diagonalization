@@ -293,6 +293,16 @@ def build_cells() -> list[dict]:
 
             The matrix below is small enough to inspect directly, but rich enough to show the SQD idea clearly.
 
+            In coordinate form, a general state in this basis looks like
+
+            $$
+            \lvert \psi \rangle =
+            a_{000}\lvert 000 \rangle +
+            a_{001}\lvert 001 \rangle +
+            \cdots +
+            a_{111}\lvert 111 \rangle.
+            $$
+
             A useful beginner mindset is this:
 
             - each **row** and **column** corresponds to one basis state,
