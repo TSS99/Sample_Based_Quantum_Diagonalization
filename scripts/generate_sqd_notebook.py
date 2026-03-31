@@ -1294,6 +1294,14 @@ def build_cells() -> list[dict]:
             If our subspace misses an important ground-state basis vector, the projected problem cannot recover the correct energy. We will now choose a deliberately bad subspace to see this happen in practice.
 
             This is worth seeing because beginners sometimes think the reduced diagonalization step itself is magically fixing everything. It is not. The quality of the reduced answer depends strongly on the quality of the chosen subspace.
+
+            Symbolically, if the exact state has important weight outside the chosen subspace, then
+
+            $$
+            \lvert \psi_0 \rangle \notin \operatorname{span}\{\text{chosen basis states}\},
+            $$
+
+            and the projected solve cannot reproduce the exact ground state perfectly, no matter how accurately we diagonalize inside that reduced space.
             """
         ),
         code_cell(
