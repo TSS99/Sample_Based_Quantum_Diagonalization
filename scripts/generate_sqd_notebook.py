@@ -460,6 +460,14 @@ def build_cells() -> list[dict]:
             $$
 
             which means the entire Hamiltonian can be reconstructed from its eigenvalues and orthonormal eigenvectors.
+
+            For a normalized trial state $\lvert \phi \rangle$, the energy expectation is
+
+            $$
+            \frac{\langle \phi \rvert H \lvert \phi \rangle}{\langle \phi \vert \phi \rangle}.
+            $$
+
+            The ground-state energy is the minimum value of this expression over all nonzero trial states, which is why subspace methods focus so much on choosing good trial spaces.
             """
         ),
         code_cell(
