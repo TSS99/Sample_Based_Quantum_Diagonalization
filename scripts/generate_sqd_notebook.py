@@ -1381,6 +1381,18 @@ def build_cells() -> list[dict]:
             \text{good samples} \longrightarrow \text{good subspace} \longrightarrow \text{good reduced diagonalization}.
             $$
 
+            In very compact mathematical language, the notebook compares:
+
+            $$
+            \text{exact: } H \lvert \psi_0 \rangle = E_0 \lvert \psi_0 \rangle
+            $$
+
+            with
+
+            $$
+            \text{reduced: } H_{\mathrm{sub}} c = E S c, \qquad \lvert \psi_{\mathrm{SQD}} \rangle = B c.
+            $$
+
             If you only remember one sentence from this notebook, let it be this:
 
             **SQD does not guess the answer out of nowhere. It uses samples to decide where the important part of the full quantum problem probably lives, and then solves the physics inside that smaller region.**
