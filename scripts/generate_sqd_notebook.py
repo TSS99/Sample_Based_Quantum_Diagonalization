@@ -1110,6 +1110,14 @@ def build_cells() -> list[dict]:
             measures how aligned the two state vectors are.
 
             So one metric compares **numbers**, and the other compares **directions in vector space**.
+
+            If both states are normalized, then the overlap behaves like a cosine between vectors:
+
+            $$
+            0 \le |\langle \psi_0 \vert \psi_{\mathrm{SQD}} \rangle| \le 1.
+            $$
+
+            Values close to $1$ mean the vectors point in almost the same direction, while smaller values mean the approximate state is pointing away from the exact one.
             """
         ),
         code_cell(
