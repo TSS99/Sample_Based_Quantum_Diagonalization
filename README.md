@@ -94,6 +94,7 @@ If some of the words below feel unfamiliar, keep this section nearby while readi
 - **Subspace**: a smaller vector space inside the full Hilbert space.
 - **Projection**: the act of restricting a large matrix problem to a smaller chosen subspace.
 - **Shot**: one measurement sample drawn from the probability distribution of the state.
+- **Overlap matrix**: a matrix that records how basis vectors relate to one another through inner products.
 
 ## Workflow at a glance
 
