@@ -77,6 +77,8 @@ It explains:
 5. Why the reduced problem can be solved with a projected Hamiltonian.
 6. When SQD succeeds and when it fails.
 
+The notebook is therefore both a coding walkthrough and a mathematical tutorial.
+
 ## Tiny glossary before you begin
 
 If some of the words below feel unfamiliar, keep this section nearby while reading the notebook.
