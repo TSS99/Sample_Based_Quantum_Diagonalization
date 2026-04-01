@@ -17,6 +17,8 @@ The main teaching resource is the notebook:
 
 - `notebooks/sample_based_quantum_diagonalization_workflow.ipynb`
 
+If you only open one file in this repository, make it that notebook.
+
 The notebook builds the SQD idea from first principles:
 
 1. Start from a small Hamiltonian.
