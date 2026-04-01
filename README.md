@@ -112,6 +112,7 @@ The notebook follows the same sequence every time:
 10. Compare the approximate energy with the exact one.
 
 The key mental picture is that the full problem stays the same, but we try to solve it inside a smaller space suggested by the data.
+That is the main compression idea behind the workflow.
 
 ## How to read the notebook
 
