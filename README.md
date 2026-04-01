@@ -187,6 +187,7 @@ In other words, this repository teaches the method on a small system so the logi
 The markdown in this repository uses GitHub-friendly math delimiters such as `$...$` and `$$...$$` so the equations render more reliably in both the README and the notebook preview on GitHub.
 
 That is why the math expressions are written in simple GitHub-compatible markdown form rather than notebook-specific formatting.
+This keeps the repository easier to read directly on GitHub.
 
 ## Regenerating the notebook
 
