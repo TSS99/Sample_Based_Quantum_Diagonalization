@@ -198,6 +198,7 @@ python3 scripts/generate_sqd_notebook.py
 ```
 
 That command rebuilds the `.ipynb` file from the generator source, so it is the right step after any notebook-content edit made in `scripts/generate_sqd_notebook.py`.
+It also helps avoid hand-editing raw notebook JSON.
 
 You can also scan the repo for GitHub-unfriendly math delimiters with:
 
