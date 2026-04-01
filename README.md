@@ -130,6 +130,8 @@ If you are completely new, do not worry about memorizing everything on the first
 
 exact state $\rightarrow$ sampled bitstrings $\rightarrow$ reduced basis $\rightarrow$ projected Hamiltonian $\rightarrow$ approximate energy.
 
+Reading with that chain in mind makes the notebook much easier to follow.
+
 ## What you should expect to see while running it
 
 If the notebook is working correctly, you should see all of the following along the way:
