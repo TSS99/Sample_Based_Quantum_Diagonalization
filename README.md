@@ -207,3 +207,4 @@ python3 scripts/check_github_math.py
 ```
 
 That quick check is useful if you want the README and notebook preview to keep rendering cleanly on GitHub after small documentation edits.
+It is especially helpful after changing equations or markdown-heavy explanations.
