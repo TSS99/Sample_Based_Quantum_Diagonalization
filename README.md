@@ -148,6 +148,8 @@ If the notebook is working correctly, you should see all of the following along 
 That sequence is helpful because it lets you match every mathematical idea to a concrete output.
 You should also expect the exact probabilities and sampled probabilities to be close, but not perfectly identical, because the samples come from finitely many shots.
 
+That small mismatch is part of the lesson, not a bug.
+
 ## Repository layout
 
 ```text
