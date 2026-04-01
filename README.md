@@ -165,6 +165,8 @@ That small mismatch is part of the lesson, not a bug.
     └── generate_sqd_notebook.py
 ```
 
+The `scripts/` folder is there to keep the generated notebook and the notebook source in sync.
+
 ## A note about the example
 
 The notebook uses a small three-qubit Hamiltonian on purpose.
