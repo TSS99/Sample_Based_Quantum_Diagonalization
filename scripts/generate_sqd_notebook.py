@@ -665,6 +665,18 @@ def build_cells() -> list[dict]:
 
             **How much of the whole state have I already captured if I keep only the top few basis states?**
 
+            If the probabilities are sorted in descending order,
+
+            $$
+            p_1 \ge p_2 \ge \cdots \ge p_8,
+            $$
+
+            then the cumulative probability after keeping the first $m$ rows is
+
+            $$
+            C_m = \sum_{j=1}^m p_j.
+            $$
+
             If the cumulative probability rises quickly, that means a small subset of basis states carries a large fraction of the total weight. Situations like that are exactly where sample-based subspace methods become attractive.
             """
         ),
