@@ -959,6 +959,14 @@ def build_cells() -> list[dict]:
             $$
 
             This is the precise reason the projected Hamiltonian is $H_{\mathrm{sub}} = B^T H B$ and the overlap matrix is $S = B^T B$.
+
+            Entry by entry, the reduced Hamiltonian satisfies
+
+            $$
+            (H_{\mathrm{sub}})_{ij} = \langle x_i \vert H \vert x_j \rangle,
+            $$
+
+            so $H_{\mathrm{sub}}$ keeps only the rows and columns of $H$ associated with the chosen basis states.
             """
         ),
         code_cell(
