@@ -788,6 +788,14 @@ def build_cells() -> list[dict]:
             - and where finite-shot noise is still distorting the picture.
 
             If the most important rows line up reasonably well, then our sampling stage is already giving us a useful clue about which basis states deserve a place in the reduced subspace.
+
+            A natural row-by-row difference to keep in mind is
+
+            $$
+            \hat{p}(x) - p(x),
+            $$
+
+            which measures how far the sampled estimate is from the exact probability for that basis state.
             """
         ),
         markdown_cell(
