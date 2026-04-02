@@ -284,6 +284,12 @@ def build_cells() -> list[dict]:
             2^3 = 8.
             $$
 
+            More generally, for $n$ qubits,
+
+            $$
+            \dim(\mathcal{H}) = 2^n.
+            $$
+
             That means the computational basis is
 
             $$
