@@ -967,6 +967,14 @@ def build_cells() -> list[dict]:
             $$
 
             so $H_{\mathrm{sub}}$ keeps only the rows and columns of $H$ associated with the chosen basis states.
+
+            When the chosen columns are orthonormal, the projector onto the reduced subspace is
+
+            $$
+            P = B B^T.
+            $$
+
+            This matrix takes any full-space vector and keeps only the part that lies inside the chosen sampled subspace.
             """
         ),
         code_cell(
