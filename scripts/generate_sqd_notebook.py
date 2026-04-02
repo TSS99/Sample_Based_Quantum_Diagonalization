@@ -829,6 +829,19 @@ def build_cells() -> list[dict]:
             $$
 
             Everything that follows depends on this reduced set being a good summary of the important support of the exact state.
+
+            Once those bitstrings are chosen, the reduced basis matrix is
+
+            $$
+            B =
+            \begin{bmatrix}
+            \vert & \vert &  & \vert \\
+            e_{x_1} & e_{x_2} & \cdots & e_{x_k} \\
+            \vert & \vert &  & \vert
+            \end{bmatrix},
+            $$
+
+            where each $e_{x_j}$ is the full-space basis vector corresponding to the chosen bitstring $x_j$.
             """
         ),
         code_cell(
