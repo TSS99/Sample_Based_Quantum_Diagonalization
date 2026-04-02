@@ -901,6 +901,14 @@ def build_cells() -> list[dict]:
             **Did the finite-shot sampling recover the same important basis states that the exact state told us to expect?**
 
             When the answer is mostly yes, the reduced subspace is starting from a strong position. When the answer is no, the later reduced diagonalization has a much harder job.
+
+            In an idealized exact-support ranking, we would sort basis states so that
+
+            $$
+            p(x_{(1)}) \ge p(x_{(2)}) \ge \cdots,
+            $$
+
+            and then keep the first $k$ of them. The sampled workflow replaces $p(x)$ by its estimate $\hat{p}(x)$ and hopes the ordering is similar.
             """
         ),
         markdown_cell(
