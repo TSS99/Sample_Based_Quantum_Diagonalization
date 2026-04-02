@@ -999,6 +999,20 @@ def build_cells() -> list[dict]:
 
             In this toy example, $S$ becomes the identity because we selected ordinary computational basis vectors.
 
+            In symbols, because the chosen columns are orthonormal basis vectors,
+
+            $$
+            \langle x_i \vert x_j \rangle = \delta_{ij},
+            $$
+
+            which implies
+
+            $$
+            S_{ij} = \delta_{ij}
+            \quad \Longrightarrow \quad
+            S = I.
+            $$
+
             That might make the overlap matrix feel unnecessary, but it is still a good habit to include it because many practical reduced-basis methods use vectors that are **not** automatically orthonormal.
 
             Thinking in terms of both $H_{\mathrm{sub}}$ and $S$ prepares you for the more general version of SQD used in real research workflows.
