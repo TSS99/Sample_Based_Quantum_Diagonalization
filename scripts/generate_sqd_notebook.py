@@ -1304,6 +1304,12 @@ def build_cells() -> list[dict]:
             $$
 
             The notebook does not prove a full convergence theorem, but it does let you see the practical consequence of this idea numerically.
+
+            If we run the experiment for many repetitions labeled by $r = 1, \dots, R$, then the mean absolute energy error reported in the table is
+
+            $$
+            \frac{1}{R}\sum_{r=1}^R \left|E_{\mathrm{SQD}}^{(r)} - E_0\right|.
+            $$
             """
         ),
         markdown_cell(
