@@ -1251,6 +1251,16 @@ def build_cells() -> list[dict]:
             - a large state overlap.
 
             If the energy looks good but the overlap is poor, that can still mean the reduced subspace is missing important structure. So it is healthy to inspect more than one metric whenever possible.
+
+            In a basis expansion, the overlap can be written explicitly as
+
+            $$
+            \langle \psi_0 \vert \psi_{\mathrm{SQD}} \rangle
+            =
+            \sum_x a_x^* b_x,
+            $$
+
+            where $a_x$ and $b_x$ are the exact and approximate amplitudes in the same basis.
             """
         ),
         markdown_cell(
