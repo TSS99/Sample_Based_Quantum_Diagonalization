@@ -1517,6 +1517,14 @@ def build_cells() -> list[dict]:
             - the answer from a deliberately poor subspace.
 
             Seeing those side by side makes the logic of SQD very concrete: the quality of the reduced diagonalization depends strongly on whether the reduced basis actually contains the important physics.
+
+            The absolute error shown in that table is
+
+            $$
+            |E_{\text{case}} - E_0|,
+            $$
+
+            where $E_{\text{case}}$ is the energy from whichever row you are examining.
             """
         ),
         markdown_cell(
