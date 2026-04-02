@@ -1188,6 +1188,14 @@ def build_cells() -> list[dict]:
             - **sampling error**: the error caused by choosing that space from finite noisy samples.
 
             The ideal reduced-basis row says, "What if we had picked the top support perfectly?" Comparing that row to the sampled row tells you how much the sampling stage itself is helping or hurting.
+
+            Because the reduced solve is a minimization inside a restricted subspace, the variational idea suggests
+
+            $$
+            E_0 \le E_{\mathrm{sub}},
+            $$
+
+            where $E_{\mathrm{sub}}$ is the lowest energy obtainable inside the chosen reduced space.
             """
         ),
         markdown_cell(
