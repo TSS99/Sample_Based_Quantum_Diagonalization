@@ -1440,6 +1440,18 @@ def build_cells() -> list[dict]:
             $$
 
             and the projected solve cannot reproduce the exact ground state perfectly, no matter how accurately we diagonalize inside that reduced space.
+
+            A useful way to picture this is to split the exact state into
+
+            $$
+            \lvert \psi_0 \rangle
+            =
+            \lvert \psi_{\parallel} \rangle
+            +
+            \lvert \psi_{\perp} \rangle,
+            $$
+
+            where $\lvert \psi_{\parallel} \rangle$ lies inside the chosen subspace and $\lvert \psi_{\perp} \rangle$ lies outside it.
             """
         ),
         code_cell(
