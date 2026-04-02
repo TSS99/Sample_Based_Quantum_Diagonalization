@@ -317,6 +317,19 @@ def build_cells() -> list[dict]:
             a_{111}\lvert 111 \rangle.
             $$
 
+            If we stack the amplitudes into a column vector, then the same state is also represented by
+
+            $$
+            \lvert \psi \rangle
+            \leftrightarrow
+            \begin{bmatrix}
+            a_{000} \\
+            a_{001} \\
+            \vdots \\
+            a_{111}
+            \end{bmatrix}.
+            $$
+
             A useful beginner mindset is this:
 
             - each **row** and **column** corresponds to one basis state,
