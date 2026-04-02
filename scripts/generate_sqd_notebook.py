@@ -1100,6 +1100,14 @@ def build_cells() -> list[dict]:
             $$
 
             means that each coefficient in $c$ tells us how much of each selected basis vector is used in the final approximate state.
+
+            Written componentwise,
+
+            $$
+            \lvert \psi_{\mathrm{SQD}} \rangle
+            =
+            \sum_{j=1}^k c_j \lvert x_j \rangle.
+            $$
             """
         ),
         code_cell(
