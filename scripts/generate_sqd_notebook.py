@@ -1087,6 +1087,12 @@ def build_cells() -> list[dict]:
             H_{\mathrm{sub}} c = E S c.
             $$
 
+            In the special case $S = I$, this simplifies to the ordinary eigenvalue equation
+
+            $$
+            H_{\mathrm{sub}} c = E c.
+            $$
+
             Once we solve for $c$, the reconstruction step
 
             $$
