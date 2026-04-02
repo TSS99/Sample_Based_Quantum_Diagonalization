@@ -677,6 +677,8 @@ def build_cells() -> list[dict]:
             C_m = \sum_{j=1}^m p_j.
             $$
 
+            If $C_m$ is already close to $1$ for small $m$, then most of the state lives in only a few basis directions.
+
             If the cumulative probability rises quickly, that means a small subset of basis states carries a large fraction of the total weight. Situations like that are exactly where sample-based subspace methods become attractive.
             """
         ),
