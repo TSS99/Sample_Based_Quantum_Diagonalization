@@ -542,6 +542,16 @@ def build_cells() -> list[dict]:
             \sum_x |a_x|^2 = 1.
             $$
 
+            This follows directly from orthonormality:
+
+            $$
+            \langle \psi \vert \psi \rangle
+            =
+            \sum_{x,y} a_x^* a_y \langle x \vert y \rangle
+            =
+            \sum_x |a_x|^2.
+            $$
+
             Printing the norm is a simple sanity check. It reassures us that the eigenvector we are about to interpret probabilistically really can be used to define a proper probability distribution.
             """
         ),
