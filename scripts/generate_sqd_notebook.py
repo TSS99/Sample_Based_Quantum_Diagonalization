@@ -140,6 +140,14 @@ def build_cells() -> list[dict]:
             $$
 
             where $H_{\mathrm{sub}}$ is the projected Hamiltonian and $S$ is the overlap matrix. In our toy example the chosen basis states are orthonormal, so $S$ will turn out to be the identity matrix, but it is useful to keep the general formula in view.
+
+            You can summarize the notebook in one equation chain:
+
+            $$
+            H \;\Longrightarrow\; \lvert \psi_0 \rangle \;\Longrightarrow\; p(x) \;\Longrightarrow\; \hat{p}(x) \;\Longrightarrow\; B \;\Longrightarrow\; H_{\mathrm{sub}} c = E S c.
+            $$
+
+            Each arrow means "use the previous object to build the next one."
             """
         ),
         markdown_cell(
